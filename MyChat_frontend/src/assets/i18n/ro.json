@@ -314,6 +314,7 @@
     "you": "Tu",
     "user": "Utilizator",
     "messagePlaceholder": "Scrie un mesaj...",
-    "sendButton": "Trimite"
+    "sendButton": "Trimite",
+    "loadingMessages": "Se încarcă mesajele..."
   }
 }

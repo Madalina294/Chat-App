@@ -54,21 +54,35 @@
 
       <!-- Zona de mesaje -->
       <div class="messages-container">
-        <div
-          *ngFor="let message of messages()"
-          class="message"
-          [class.my-message]="isMyMessage(message)"
-          [class.their-message]="!isMyMessage(message)">
-          <div class="message-content">
-            <div class="message-sender-name">
-              {{ message.senderName || (isMyMessage(message) ? ("chat.you" | translate) : ("chat.user" | translate)) }}
-            </div>
-            <div class="message-text">{{ message.content }}</div>
-            <div class="message-time">
-              {{ formatTime(message.timestamp) }}
+
+        <div *ngIf="isLoadingMessages()" class="loading-messages-container">
+          <mat-progress-spinner
+            mode="indeterminate"
+            diameter="40"
+            [strokeWidth]="4">
+          </mat-progress-spinner>
+          <p class="loading-text">{{ "chat.loadingMessages" | translate }}</p>
+        </div>
+
+        <div *ngIf="!isLoadingMessages()">
+          <div
+            *ngFor="let message of messages()"
+            class="message"
+            [class.my-message]="isMyMessage(message)"
+            [class.their-message]="!isMyMessage(message)"
+          >
+            <div class="message-content">
+              <div class="message-sender-name">
+                {{ message.senderName || (isMyMessage(message) ? ("chat.you" | translate) : ("chat.user" | translate)) }}
+              </div>
+              <div class="message-text">{{ message.content }}</div>
+              <div class="message-time">
+                {{ formatTime(message.timestamp) }}
+              </div>
             </div>
           </div>
         </div>
+
       </div>
 
       <!-- Input pentru mesaje -->

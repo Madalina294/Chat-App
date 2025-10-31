@@ -314,6 +314,7 @@
     "you": "You",
     "user": "User",
     "messagePlaceholder": "Type a message...",
-    "sendButton": "Send"
+    "sendButton": "Send",
+    "loadingMessages": "Loading messages..."
   }
 }

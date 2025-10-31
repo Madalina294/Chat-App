@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { isPlatformBrowser, NgForOf, NgIf } from '@angular/common';
 import { StorageService } from '../../services/storage/storage.service';
 import {TranslatePipe, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-chat',
@@ -14,7 +15,8 @@ import {TranslatePipe, TranslateModule, TranslateService} from '@ngx-translate/c
     NgForOf,
     NgIf,
     TranslateModule,
-    TranslatePipe
+    TranslatePipe,
+    MatProgressSpinner
   ],
   styleUrls: ['./chat.component.scss']
 })
@@ -26,6 +28,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   availableUsers = signal<UserForChat[]>([]);
   messages = signal<ChatMessageDto[]>([]);
   content = signal<string>(''); // Folosit cu [ngModel] și two-way binding
+  isLoadingMessages = signal<boolean>(false);
 
   private sub?: Subscription;
   readonly currentUserId: number = -1;
@@ -97,12 +100,10 @@ export class ChatComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.loadConversation(userId);
-
-    // loadConversation va fi apelat automat prin effect()
   }
 
   loadConversation(userId: number): void {
+    this.isLoadingMessages.set(true);
     // Anulează abonarea anterioară
     this.sub?.unsubscribe();
     this.messages.set([]); // Resetează mesajele
@@ -110,10 +111,12 @@ export class ChatComponent implements OnInit, OnDestroy {
     // Încarcă istoricul din REST API
     this.chat.getConversationHistory(userId).subscribe({
       next: (history) => {
+        this.isLoadingMessages.set(false);
         this.messages.set(history); // Setează signal
         console.log('Conversation history loaded:', history);
       },
       error: (err) => {
+        this.isLoadingMessages.set(false);
         console.error('Error loading conversation history:', err);
       }
     });
