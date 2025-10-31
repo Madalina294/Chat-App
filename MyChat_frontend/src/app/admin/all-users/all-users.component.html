@@ -1,0 +1,155 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="all-users-container">
+  <mat-card class="users-header-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon>supervisor_account</mat-icon>
+      </div>
+      <mat-card-title>{{ "allUsers.title" | translate }}</mat-card-title>
+      <mat-card-subtitle>{{
+        "allUsers.subtitle" | translate
+      }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading()" class="loading-container">
+    <mat-progress-spinner
+      mode="indeterminate"
+      diameter="50"
+    ></mat-progress-spinner>
+    <p>{{ "allUsers.loadingUsers" | translate }}</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error() && !loading()" class="error-container">
+    <mat-icon color="warn">error</mat-icon>
+    <p>{{ error() }}</p>
+    <button mat-raised-button color="primary" (click)="loadUsers()">
+      <mat-icon>refresh</mat-icon>
+      {{ "allUsers.loadAgain" | translate }}
+    </button>
+  </div>
+
+  <!-- Users List -->
+  <div *ngIf="!loading() && !error()" class="user-list">
+    <!-- Controls -->
+    <div class="controls-section">
+      <div class="sort-controls">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "allUsers.sortBy" | translate }}</mat-label>
+          <mat-select
+            [value]="sortBy()"
+            (selectionChange)="onSortChange($event.value)"
+          >
+            <mat-option value="id">{{
+              "allUsers.sortOptions.id" | translate
+            }}</mat-option>
+            <mat-option value="firstname">{{
+              "allUsers.sortOptions.firstname" | translate
+            }}</mat-option>
+            <mat-option value="lastname">{{
+              "allUsers.sortOptions.lastname" | translate
+            }}</mat-option>
+            <mat-option value="email">{{
+              "allUsers.sortOptions.email" | translate
+            }}</mat-option>
+            <mat-option value="createdAt">{{
+              "allUsers.sortOptions.createdAt" | translate
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          mat-icon-button
+          (click)="onSortDirectionChange()"
+          [title]="
+            sortDir() === 'asc'
+              ? ('allUsers.sortAscending' | translate)
+              : ('allUsers.sortDescending' | translate)
+          "
+        >
+          <mat-icon>{{
+            sortDir() === "asc" ? "arrow_upward" : "arrow_downward"
+          }}</mat-icon>
+        </button>
+      </div>
+
+      <div class="pagination-info">
+        {{ "allUsers.showing" | translate }}
+        {{ currentPage() * pageSize() + 1 }} -
+        {{ Math.min((currentPage() + 1) * pageSize(), totalElements()) }}
+        {{ "allUsers.of" | translate }} {{ totalElements() }}
+        {{ "allUsers.users" | translate }}
+      </div>
+    </div>
+
+    <div *ngIf="users().length === 0" class="no-users">
+      <mat-icon>find_replace</mat-icon>
+      <p>{{ "allUsers.noUsersFound" | translate }}</p>
+    </div>
+
+    <div class="users-grid">
+      <mat-card *ngFor="let user of users()" class="user-card">
+        <mat-card-content>
+          <div class="user-info">
+            <div class="user-details">
+              <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+              <p class="email">
+                <mat-icon>email</mat-icon>
+                {{ user.email }}
+              </p>
+              <div class="user-status">
+                <span
+                  class="mfa-status"
+                  [ngClass]="{
+                    enabled: user.mfaEnabled,
+                    disabled: !user.mfaEnabled
+                  }"
+                >
+                  <mat-icon>{{
+                    user.mfaEnabled ? "security" : "no_encryption"
+                  }}</mat-icon>
+                  2FA
+                  {{
+                    user.mfaEnabled
+                      ? ("allUsers.mfaEnabled" | translate)
+                      : ("allUsers.mfaDisabled" | translate)
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-button color="primary" (click)="viewAccount(user.userId)">
+            <mat-icon>visibility</mat-icon>
+            {{ "allUsers.viewButton" | translate }}
+          </button>
+          <button mat-button color="accent" (click)="sendEmail(user.email)">
+            <mat-icon>mail</mat-icon>
+            {{ "allUsers.sendEmailButton" | translate }}
+          </button>
+          <button mat-button color="warn" (click)="deleteUser(user.userId)">
+            <mat-icon>delete</mat-icon>
+            {{ "allUsers.deleteButton" | translate }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Pagination -->
+    <mat-paginator
+      *ngIf="totalElements() > 0"
+      [length]="totalElements()"
+      [pageSize]="pageSize()"
+      [pageIndex]="currentPage()"
+      [pageSizeOptions]="pageSizeOptions"
+      [showFirstLastButtons]="true"
+      (page)="onPageChange($event)"
+      class="pagination-controls"
+    >
+    </mat-paginator>
+  </div>
+</div>

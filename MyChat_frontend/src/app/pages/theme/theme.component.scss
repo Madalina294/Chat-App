@@ -1,0 +1,212 @@
+// Theme Toggle Component - Clean and Simple Design
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--ant-background-color-base, #f5f5f5);
+  border-radius: 25px;
+  padding: 4px;
+  border: 2px solid var(--ant-border-color-base, #d9d9d9);
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: var(--ant-box-shadow-popover, 0 4px 12px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  .theme-icon {
+    font-size: 20px;
+    transition: all 0.3s ease;
+    filter: grayscale(1);
+    opacity: 0.6;
+  }
+
+  &.active {
+    background: var(--ant-primary-color, #1890ff);
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+
+    .theme-icon {
+      filter: grayscale(0);
+      opacity: 1;
+      color: white;
+    }
+  }
+
+  &:hover:not(.active) {
+    background: var(--ant-background-color-light, #fafafa);
+
+    .theme-icon {
+      opacity: 0.8;
+    }
+  }
+}
+
+.toggle-switch {
+  position: relative;
+  width: 45px;
+  height: 25px;
+  background: var(--ant-border-color-base, #d9d9d9);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid var(--ant-border-color-base, #d9d9d9);
+
+  &:hover {
+    background: var(--ant-border-color-split, #bfbfbf);
+  }
+}
+
+.toggle-handle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--ant-border-color-base, #d9d9d9);
+
+  &.active {
+    transform: translateX(26px);
+    background: var(--ant-primary-color, #1890ff);
+    border-color: var(--ant-primary-color, #1890ff);
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+  }
+}
+
+// Dark mode specific styles
+.dark-mode {
+  .theme-toggle-container {
+    background: var(--ant-background-color-light, #1f1f1f);
+    border-color: var(--ant-border-color-base, #303030);
+  }
+
+  .theme-toggle {
+    background: var(--ant-background-color-base, #000);
+    border-color: var(--ant-border-color-base, #303030);
+  }
+
+  .theme-option {
+    &:hover:not(.active) {
+      background: var(--ant-background-color-light, #1f1f1f);
+    }
+  }
+
+  .toggle-switch {
+    background: var(--ant-border-color-base, #303030);
+    border-color: var(--ant-border-color-base, #303030);
+
+    &:hover {
+      background: var(--ant-border-color-split, #404040);
+    }
+  }
+
+  .toggle-handle {
+    background: var(--ant-background-color, #141414);
+    border-color: var(--ant-border-color-base, #303030);
+
+    &.active {
+      background: var(--ant-primary-color, #1890ff);
+      border-color: var(--ant-primary-color, #1890ff);
+    }
+  }
+}
+
+// Light mode specific styles
+.light-mode {
+  .theme-toggle-container {
+    background: var(--ant-background-color-light, #fafafa);
+    border-color: var(--ant-border-color-base, #d9d9d9);
+  }
+
+  .theme-toggle {
+    background: var(--ant-background-color-base, #f5f5f5);
+    border-color: var(--ant-border-color-base, #d9d9d9);
+  }
+
+  .theme-option {
+    &:hover:not(.active) {
+      background: var(--ant-background-color-light, #fafafa);
+    }
+  }
+
+  .toggle-switch {
+    background: var(--ant-border-color-base, #d9d9d9);
+    border-color: var(--ant-border-color-base, #d9d9d9);
+
+    &:hover {
+      background: var(--ant-border-color-split, #bfbfbf);
+    }
+  }
+
+  .toggle-handle {
+    background: white;
+    border-color: var(--ant-border-color-base, #d9d9d9);
+
+    &.active {
+      background: var(--ant-primary-color, #1890ff);
+      border-color: var(--ant-primary-color, #1890ff);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .theme-toggle-container {
+    padding: 16px;
+    max-width: 280px;
+  }
+
+  .theme-option {
+    width: 36px;
+    height: 36px;
+
+    .theme-icon {
+      font-size: 18px;
+    }
+  }
+
+  .toggle-switch {
+    width: 45px;
+    height: 22px;
+  }
+
+  .toggle-handle {
+    width: 18px;
+    height: 18px;
+
+    &.active {
+      transform: translateX(23px);
+    }
+  }
+}
+
+// Focus improvements for accessibility
+.theme-option:focus-visible,
+.toggle-switch:focus-visible {
+  outline: 2px solid var(--ant-primary-color, #1890ff);
+  outline-offset: 2px;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-container,
+  .theme-toggle,
+  .theme-option,
+  .toggle-switch,
+  .toggle-handle {
+    transition: none;
+  }
+}

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>
+  <mat-icon color="warn">warning</mat-icon>
+  Delete warning
+</h2>
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+  <button mat-raised-button color="warn" (click)="onConfirm()">
+    <mat-icon>delete</mat-icon>
+    Delete
+  </button>
+</mat-dialog-actions>

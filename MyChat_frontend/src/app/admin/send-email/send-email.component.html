@@ -1,0 +1,67 @@
+<div class="enter-email-container">
+  <div class="email-container">
+    <nz-spin
+      [nzSpinning]="isSpinning()"
+      [nzSize]="'large'"
+      [nzTip]="'sendEmail.processing' | translate"
+      class="proccesing-spinner"
+    >
+      <div class="card-header">
+        <h1 class="form-title">{{ "sendEmail.title" | translate }}</h1>
+        <p class="form-subtitle">
+          {{ "sendEmail.to" | translate }}: {{ toEmail }}
+        </p>
+      </div>
+
+      <form
+        nz-form
+        [formGroup]="emailForm"
+        (ngSubmit)="onSubmit()"
+        class="email-form"
+        nzLayout="vertical"
+      >
+        <nz-form-item>
+          <nz-form-label nzRequired>{{
+            "sendEmail.subjectLabel" | translate
+          }}</nz-form-label>
+          <nz-form-control
+            [nzErrorTip]="'sendEmail.subjectRequired' | translate"
+          >
+            <input
+              nz-input
+              formControlName="subject"
+              [placeholder]="'sendEmail.subjectPlaceholder' | translate"
+            />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label nzRequired>{{
+            "sendEmail.contentLabel" | translate
+          }}</nz-form-label>
+          <nz-form-control
+            [nzErrorTip]="'sendEmail.contentRequired' | translate"
+          >
+            <textarea
+              nz-input
+              formControlName="content"
+              rows="6"
+              style="resize: vertical"
+              [placeholder]="'sendEmail.contentPlaceholder' | translate"
+            ></textarea>
+          </nz-form-control>
+        </nz-form-item>
+
+        <button
+          nz-button
+          class="submit-button"
+          [nzType]="'primary'"
+          type="submit"
+          [disabled]="emailForm.invalid"
+        >
+          {{ "sendEmail.sendButton" | translate }}
+        </button>
+      </form>
+    </nz-spin>
+  </div>
+</div>

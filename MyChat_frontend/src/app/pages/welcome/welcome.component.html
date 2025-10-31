@@ -1,0 +1,42 @@
+<div class="welcome-container">
+  <div class="welcome-header">
+    <h1>
+      {{
+        "welcome.title"
+          | translate : { firstName: user?.firstname, lastName: user?.lastname }
+      }}
+    </h1>
+    <p>{{ "welcome.subtitle" | translate }}</p>
+  </div>
+
+  <div class="user-profile-section" *ngIf="user">
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img
+          *ngIf="userImage"
+          [src]="getFullImageUrl(userImage)"
+          alt="User Avatar"
+          class="user-image"
+        />
+        <div *ngIf="!userImage" class="default-avatar">
+          {{ user.firstname?.charAt(0) }}{{ user.lastname?.charAt(0) }}
+        </div>
+      </div>
+      <div class="profile-info">
+        <h2>{{ user.firstname }} {{ user.lastname }}</h2>
+        <p class="user-role">
+          {{ "welcome.profile.role" | translate }}: {{ user.role }}
+        </p>
+        <p class="user-id">
+          {{ "welcome.profile.userId" | translate }}: {{ user.id }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="logout()" class="logout-btn">
+      {{ "welcome.actions.logout" | translate }}
+    </button>
+  </div>
+</div>

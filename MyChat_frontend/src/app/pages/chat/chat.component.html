@@ -1,0 +1,88 @@
+<div class="chat-container">
+  <!-- Sidebar cu lista de useri -->
+  <div class="users-sidebar">
+    <div class="sidebar-header">
+      <h3>Conversații</h3>
+    </div>
+    <div class="users-list">
+      <div
+        *ngFor="let user of availableUsers()"
+        class="user-item"
+        [class.selected]="selectedUserId() === user.userId"
+        (click)="selectUser(user.userId, user.name, user.imageUrl)">
+        <img
+          [src]="getFullImageUrl(user.imageUrl)"
+          [alt]="user.name"
+          class="user-avatar"
+          onerror="this.src='/user.png'">
+        <div class="user-info">
+          <div class="user-name">{{ user.name }}</div>
+          <div class="user-last-message" *ngIf="user.lastMessage">
+            {{ user.lastMessage }}
+          </div>
+        </div>
+        <div class="user-meta">
+          <div class="last-message-time" *ngIf="user.lastMessageTimestamp">
+            {{ formatTime(user.lastMessageTimestamp) }}
+          </div>
+          <div class="unread-badge" *ngIf="user.unreadCount && user.unreadCount > 0">
+            {{ user.unreadCount }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zona principală de conversație -->
+  <div class="conversation-area">
+    <!-- Mesaj când nu e niciun user selectat -->
+    <div *ngIf="!hasSelectedUser()" class="no-selection">
+      <p>Selectează o conversație pentru a începe să chatezi</p>
+    </div>
+
+    <!-- Container pentru conversație când există user selectat -->
+    <div *ngIf="hasSelectedUser()" class="conversation-container">
+      <!-- Header conversație -->
+      <div class="conversation-header">
+        <img
+          [src]="getFullImageUrl(selectedUserImageUrl())"
+          [alt]="selectedUserName()"
+          class="header-avatar"
+          onerror="this.src='/user.png'">
+        <div class="header-name">{{ selectedUserName() }}</div>
+      </div>
+
+      <!-- Zona de mesaje -->
+      <div class="messages-container">
+        <div
+          *ngFor="let message of messages()"
+          class="message"
+          [class.my-message]="isMyMessage(message)"
+          [class.their-message]="!isMyMessage(message)">
+          <div class="message-content">
+            <div class="message-text">{{ message.content }}</div>
+            <div class="message-time">
+              {{ formatTime(message.timestamp) }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input pentru mesaje -->
+      <div class="message-input-container">
+        <input
+          [value]="content()"
+          (input)="content.set($any($event.target).value)"
+          placeholder="Type a message..."
+          class="message-input"
+          (keyup.enter)="send()">
+        <button
+          (click)="send()"
+          [disabled]="!content().trim()"
+          class="send-button">
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

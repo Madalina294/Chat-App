@@ -1,0 +1,261 @@
+<!-- Main Container -->
+<div class="register-page-container">
+  <!-- Registration Form Section -->
+  <div class="register-card" *ngIf="!authResponse?.mfaEnabled">
+    <nz-spin
+      [nzSpinning]="isSpinning()"
+      [nzSize]="'large'"
+      [nzTip]="'register.creatingAccount' | translate"
+      class="register-spinner"
+    >
+      <div class="card-header">
+        <h1 class="register-title">{{ "register.title" | translate }}</h1>
+        <p class="register-subtitle">{{ "register.subtitle" | translate }}</p>
+      </div>
+
+      <form
+        nz-form
+        [formGroup]="registerForm"
+        (ngSubmit)="registerUser()"
+        class="register-form"
+      >
+        <!-- First Name -->
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            [nzErrorTip]="firstNameErrorTpl"
+            [nzValidateStatus]="registerForm.controls['firstname']"
+          >
+            <input
+              nz-input
+              placeholder="{{ 'register.firstName' | translate }}"
+              formControlName="firstname"
+              class="form-input"
+            />
+            <ng-template #firstNameErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                {{ "register.firstNameRequired" | translate }}
+              </ng-container>
+              <ng-container *ngIf="control.hasError('minlength')">
+                {{ "register.firstNameMin" | translate }}
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Last Name -->
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            [nzErrorTip]="lastNameErrorTpl"
+            [nzValidateStatus]="registerForm.controls['lastname']"
+          >
+            <input
+              nz-input
+              placeholder="{{ 'register.lastName' | translate }}"
+              formControlName="lastname"
+              class="form-input"
+            />
+            <ng-template #lastNameErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                {{ "register.lastNameRequired" | translate }}
+              </ng-container>
+              <ng-container *ngIf="control.hasError('minlength')">
+                {{ "register.lastNameMin" | translate }}
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Email -->
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            nzErrorTip="{{ 'register.emailInvalid' | translate }}"
+            [nzValidateStatus]="registerForm.controls['email']"
+          >
+            <input
+              nz-input
+              placeholder="{{ 'auth.email' | translate }}"
+              formControlName="email"
+              type="email"
+              class="form-input"
+            />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Password -->
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            [nzErrorTip]="passwordErrorTpl"
+            [nzValidateStatus]="registerForm.controls['password']"
+          >
+            <div class="password-input-wrapper">
+              <input
+                nz-input
+                placeholder="{{ 'auth.password' | translate }}"
+                [type]="passwordVisible() ? 'text' : 'password'"
+                formControlName="password"
+                class="form-input password-input"
+              />
+              <span
+                nz-icon
+                [nzType]="passwordVisible() ? 'eye' : 'eye-invisible'"
+                (click)="passwordVisible.set(!passwordVisible())"
+                class="eye-icon"
+              ></span>
+            </div>
+            <ng-template #passwordErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                {{ "register.passwordRequired" | translate }}
+              </ng-container>
+              <ng-container *ngIf="control.hasError('pattern')">
+                {{ "register.passwordRules" | translate }}
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Confirm Password -->
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            [nzErrorTip]="confirmPasswordErrorTpl"
+            [nzValidateStatus]="registerForm.controls['confirmPassword']"
+          >
+            <div class="password-input-wrapper">
+              <input
+                nz-input
+                placeholder="{{ 'register.confirmPassword' | translate }}"
+                [type]="confirmPasswordVisible() ? 'text' : 'password'"
+                formControlName="confirmPassword"
+                class="form-input password-input"
+              />
+              <span
+                nz-icon
+                [nzType]="confirmPasswordVisible() ? 'eye' : 'eye-invisible'"
+                (click)="confirmPasswordVisible.set(!confirmPasswordVisible())"
+                class="eye-icon"
+              ></span>
+            </div>
+            <ng-template #confirmPasswordErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                {{ "register.confirmPasswordRequired" | translate }}
+              </ng-container>
+              <ng-container
+                *ngIf="
+                  registerForm.hasError('passwordsMismatch') && control.dirty
+                "
+              >
+                {{ "register.passwordsMismatch" | translate }}
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- 2FA Checkbox -->
+        <div class="checkbox-group">
+          <label class="checkbox-container">
+            <input
+              type="checkbox"
+              formControlName="mfaEnabled"
+              class="checkbox-input"
+            />
+            <span class="checkmark"></span>
+            <span class="checkbox-text">
+              {{ "register.enableMfa" | translate }}
+            </span>
+          </label>
+          <p class="checkbox-description">
+            {{ "register.enableMfaDesc" | translate }}
+          </p>
+        </div>
+
+        <button
+          nz-button
+          class="register-button"
+          [nzType]="'primary'"
+          type="submit"
+          [disabled]="registerForm.invalid || isSpinning()"
+        >
+          {{ "register.submit" | translate }}
+        </button>
+
+        <div class="login-link">
+          {{ "register.alreadyHaveAccount" | translate }}
+          <a routerLink="/login">{{ "auth.login" | translate }}</a>
+        </div>
+      </form>
+    </nz-spin>
+  </div>
+
+  <!-- 2FA Setup Section -->
+  <div class="register-card mfa-card" *ngIf="showMfaEnabled">
+    <nz-spin
+      [nzSpinning]="isVerifying()"
+      [nzSize]="'large'"
+      [nzTip]="'register.verifying' | translate"
+      class="verify-spinner"
+    >
+      <div class="card-header">
+        <h1 class="register-title">{{ "register.mfaTitle" | translate }}</h1>
+        <p class="register-subtitle">
+          {{ "register.mfaSubtitle" | translate }}
+        </p>
+      </div>
+
+      <div class="qr-section">
+        <div class="qr-code-container">
+          <img
+            [src]="qrCodeUri"
+            [alt]="'mfa.qrAlt' | translate"
+            class="qr-code"
+            (load)="onQrCodeLoaded()"
+            (error)="onQrCodeError($event)"
+          />
+        </div>
+        <p class="qr-instructions">
+          {{ "mfa.instructions" | translate }}
+        </p>
+      </div>
+
+      <form class="verification-form">
+        <nz-form-item>
+          <label class="verification-label">
+            {{ "mfa.enterCode" | translate }}
+          </label>
+          <input
+            nz-input
+            type="text"
+            placeholder="000000"
+            [(ngModel)]="otpCode"
+            name="otpCode"
+            maxlength="6"
+            class="verification-input"
+            [disabled]="isVerifying()"
+            (keyup.enter)="verifyTfa()"
+          />
+        </nz-form-item>
+
+        <button
+          nz-button
+          [nzType]="'primary'"
+          type="button"
+          (click)="verifyTfa()"
+          [disabled]="otpCode.length !== 6 || isVerifying()"
+          class="verify-button"
+        >
+          {{ "register.complete" | translate }}
+        </button>
+
+        <div class="help-section">
+          <p class="help-text">
+            <strong>{{ "register.helpTitle" | translate }}</strong>
+            {{ "register.helpText" | translate }}
+          </p>
+        </div>
+      </form>
+    </nz-spin>
+  </div>
+</div>

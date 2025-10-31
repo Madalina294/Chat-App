@@ -1,0 +1,381 @@
+// Header Component Styles - Aligned with Design System
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.custom-toolbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0 16px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+
+  button {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 48px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// Spacer
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Menu Button
+.menu-button {
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: -20px;
+  margin-left: 10px;
+
+  &:hover {
+    color: white;
+    transform: scale(1.05);
+  }
+
+  mat-icon {
+    font-size: 24px;
+  }
+}
+
+// App Brand
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 30px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+  }
+}
+
+.app-logo {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+// Desktop Navigation
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 16px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-button {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+// Header Actions
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+// Login Button
+.login-btn {
+  background: linear-gradient(135deg, #e395bc, #d17ba8) !important;
+  color: white !important;
+  border-radius: 25px !important;
+  padding: 15px 25px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(227, 149, 188, 0.3) !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background: linear-gradient(135deg, #d17ba8, #c06a9a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(227, 149, 188, 0.4) !important;
+  }
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// User Profile
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #e395bc, #d17ba8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  .user-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+// Enhanced Dropdown Menu Styles
+::ng-deep .mat-mdc-menu-panel {
+  min-width: 280px !important;
+  background: white !important;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.menu-section {
+  padding: 8px 0;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 8px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #dee2e6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  mat-icon {
+    color: #667eea;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+::ng-deep .mat-mdc-menu-item.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #2c3e50;
+  transition: all 0.2s ease;
+  font-weight: 500;
+
+  &:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #667eea;
+    padding-left: 24px;
+  }
+
+  &.logout {
+    color: #dc3545;
+
+    &:hover {
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      color: #c53030;
+    }
+  }
+
+  mat-icon {
+    margin-right: 16px;
+    color: #6c757d;
+    transition: color 0.2s ease;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover mat-icon {
+    color: #667eea;
+  }
+
+  &.logout:hover mat-icon {
+    color: #c53030;
+  }
+
+  span {
+    font-size: 0.95rem;
+  }
+}
+
+::ng-deep .mat-mdc-divider {
+  margin: 8px 16px;
+  border-color: #e9ecef;
+  opacity: 0.7;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .custom-toolbar {
+    padding: 0 12px;
+    min-height: 56px;
+  }
+
+  .app-brand {
+    margin-left: 8px;
+
+    .app-title {
+      font-size: 1.2rem;
+    }
+
+    .app-logo {
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .login-btn {
+    padding: 6px 16px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-toolbar {
+    padding: 0 8px;
+  }
+
+  .app-brand {
+    margin-left: 4px;
+
+    .app-title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .login-btn span {
+    display: none;
+  }
+
+  ::ng-deep .mat-mdc-menu-panel {
+    min-width: 250px !important;
+  }
+}
+
+::ng-deep .dark-mode{
+  .mat-mdc-menu-trigger menu-button mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base{
+    background: none;
+  }
+  .login-btn{
+    color: white !important;
+  }
+}

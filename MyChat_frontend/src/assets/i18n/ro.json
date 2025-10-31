@@ -1,0 +1,311 @@
+{
+  "app": {
+    "name": "Șablon Aplicație"
+  },
+  "header": {
+    "title": "Panou de control",
+    "logout": "Deconectare",
+    "language": "Limbă",
+    "theme": "Temă",
+    "adminPanel": "Panou Admin",
+    "dashboardAdmin": "Dashboard Admin",
+    "manageUsers": "Gestionează Utilizatori",
+    "adminProfile": "Profil Admin",
+    "homePage": "Pagina Principală",
+    "myDashboard": "Panoul Meu",
+    "myAccount": "Contul Meu",
+    "welcome": "Bun venit"
+  },
+  "auth": {
+    "login": "Autentificare",
+    "register": "Creează cont",
+    "email": "Email",
+    "password": "Parolă"
+  },
+  "profile": {
+    "title": "Profil",
+    "save": "Salvează",
+    "cancel": "Anulează",
+    "changePicture": "Schimbă poza",
+    "firstName": "Prenume",
+    "lastName": "Nume",
+    "email": "Email",
+    "emailFromGoogle": "Email (de la Google)",
+    "emailInvalid": "Te rugăm introdu un email valid",
+    "enable2FA": "Activează autentificarea în doi pași (2FA)",
+    "google2FAManaged": "Autentificarea în doi pași este gestionată de Google",
+    "2FARequireLogin": "Activarea 2FA va necesita o nouă autentificare",
+    "updateProfile": "Actualizează profilul",
+    "changePassword": "Schimbă parola",
+    "editPreferences": "Editează preferințele",
+    "manageGoogleAccount": "Gestionează contul Google",
+    "signOut": "Deconectare",
+    "deleteAccount": "Șterge contul",
+    "invalidImageType": "Te rugăm selectează un fișier imagine valid!",
+    "imageTooLarge": "Imaginea este prea mare! Dimensiunea maximă este 5MB.",
+    "fillFieldsCorrectly": "Te rugăm completează corect câmpurile!",
+    "profileUpdated": "Profil actualizat cu succes!",
+    "2FAEnabled": "2FA activat! Te rugăm autentifică-te din nou.",
+    "somethingWentWrong": "Ceva nu a mers bine!",
+    "confirmDelete": {
+      "message": "Ești sigur că vrei să îți ștergi contul? Această acțiune nu poate fi anulată și toate datele tale vor fi pierdute permanent.",
+      "title": "Șterge contul",
+      "confirmText": "Șterge contul",
+      "cancelText": "Anulează"
+    },
+    "accountDeleted": "Cont șters cu succes!",
+    "deleteOwnAccount": "Poți șterge doar propriul cont!",
+    "accountNotFound": "Contul nu a fost găsit!",
+    "userIdNotFound": "ID-ul utilizatorului nu a fost găsit! Te rugăm autentifică-te din nou.",
+    "ok": "Ok"
+  },
+  "preferences": {
+    "title": "Editează Preferințele",
+    "subtitle": "Personalizează setările aplicației tale",
+    "language": "Limbă",
+    "theme": "Temă",
+    "themePreference": {
+      "title": "Preferință Temă",
+      "description": "Alege tema preferată pentru aplicație",
+      "label": "Temă",
+      "dark": "Mod Întunecat",
+      "light": "Mod Luminos"
+    },
+    "languagePreference": {
+      "title": "Preferință Limbă",
+      "description": "Alege limba preferată pentru aplicație",
+      "label": "Limbă",
+      "english": "Engleză",
+      "romanian": "Română"
+    },
+    "backToProfile": "Înapoi la Profil",
+    "themeUpdated": "Preferința de temă a fost actualizată cu succes!",
+    "themeUpdateError": "Eroare la actualizarea preferinței de temă",
+    "languageUpdated": "Preferința de limbă a fost actualizată cu succes!",
+    "languageUpdateError": "Eroare la actualizarea preferinței de limbă"
+  },
+  "common": {
+    "search": "Caută",
+    "yes": "Da",
+    "no": "Nu",
+    "close": "Închide"
+  },
+  "login": {
+    "title": "Bine ai revenit",
+    "subtitle": "Autentifică-te în contul tău",
+    "signingIn": "Se autentifică...",
+    "emailInvalid": "Te rugăm introdu o adresă de email validă",
+    "passwordRequired": "Parola este obligatorie",
+    "passwordRules": "Parola trebuie să aibă minim 8 caractere, cu majuscule, litere mici, cifre și un caracter special",
+    "forgotPassword": "Ai uitat parola?",
+    "orContinueWith": "Sau continuă cu",
+    "continueWithGoogle": "Continuă cu Google",
+    "noAccount": "Nu ai cont?"
+  },
+  "mfa": {
+    "title": "Autentificare în doi pași",
+    "subtitle": "Scanează codul QR cu aplicația ta de autentificare",
+    "loading": "Se încarcă codul QR...",
+    "qrAlt": "Cod QR",
+    "instructions": "Scanează acest cod cu Google Authenticator, Authy sau orice aplicație TOTP compatibilă",
+    "enterCode": "Introdu codul de 6 cifre din aplicație",
+    "verify": "Verifică și continuă"
+  },
+  "register": {
+    "creatingAccount": "Se creează contul...",
+    "title": "Creează cont",
+    "subtitle": "Alătură-te azi și începe",
+    "firstName": "Prenume",
+    "firstNameRequired": "Prenumele este obligatoriu",
+    "firstNameMin": "Prenumele trebuie să aibă cel puțin 2 caractere",
+    "lastName": "Nume",
+    "lastNameRequired": "Numele este obligatoriu",
+    "lastNameMin": "Numele trebuie să aibă cel puțin 2 caractere",
+    "emailInvalid": "Te rugăm introdu o adresă de email validă",
+    "passwordRequired": "Parola este obligatorie",
+    "passwordRules": "Parola trebuie să aibă minim 8 caractere, cu majuscule, litere mici, cifre și un caracter special",
+    "confirmPassword": "Confirmă parola",
+    "confirmPasswordRequired": "Te rugăm confirmă parola",
+    "passwordsMismatch": "Parolele nu coincid",
+    "enableMfa": "Activează autentificarea în doi pași (Recomandat)",
+    "enableMfaDesc": "Protejează-ți contul cu o aplicație de autentificare. Vei fi autentificat automat după configurare.",
+    "submit": "Creează cont",
+    "alreadyHaveAccount": "Ai deja un cont?",
+    "verifying": "Se verifică codul...",
+    "mfaTitle": "Configurează autentificarea în doi pași",
+    "mfaSubtitle": "Asigură-ți contul cu 2FA",
+    "complete": "Finalizează înregistrarea",
+    "helpTitle": "Ai nevoie de ajutor?",
+    "helpText": "Asigură-te că ora dispozitivului este sincronizată și că ai introdus corect codul."
+  },
+  "oauth": {
+    "processing": {
+      "title": "Procesare autentificare",
+      "subtitle": "Te rugăm așteaptă în timp ce finalizăm autentificarea..."
+    },
+    "steps": {
+      "redirected": "Redirecționat de la furnizor",
+      "processing": "Procesare autentificare",
+      "redirecting": "Redirecționare către panou"
+    },
+    "status": {
+      "verifying": "Se verifică acreditările...",
+      "loading": "Se încarcă profilul..."
+    },
+    "error": {
+      "title": "Autentificare eșuată",
+      "message": "A apărut o problemă la procesarea autentificării. Te rugăm încearcă din nou.",
+      "retry": "Încearcă din nou"
+    }
+  },
+    "welcome": {
+    "title": "Bine ai venit, {{firstName}} {{lastName}}!",
+    "subtitle": "Te-ai autentificat cu succes în contul tău.",
+    "profile": {
+      "role": "Rol",
+      "userId": "ID Utilizator"
+    },
+    "actions": {
+      "logout": "Deconectare"
+    }
+  },
+  "enterEmail": {
+    "redirecting": "Redirecționare...",
+    "title": "Resetează parola",
+    "subtitle": "Te rugăm introdu emailul tău",
+    "emailInvalid": "Te rugăm introdu o adresă de email validă",
+    "emailPlaceholder": "Adresa de email",
+    "sendEmail": "Trimite email",
+    "successMessage": "Codul de resetare a fost trimis pe email!",
+    "errorMessage": "Ceva nu a mers bine!"
+  },
+  "resetPassword": {
+    "title": "Resetează parola",
+    "subtitle": "Introdu codul de 6 cifre trimis către:",
+    "resetting": "Se resetează parola...",
+    "resetCodeLabel": "Cod de resetare",
+    "resetCodeError": "Te rugăm introdu codul de 6 cifre",
+    "resetCodePlaceholder": "000000",
+    "newPasswordLabel": "Parola nouă",
+    "newPasswordRequired": "Parola nouă este obligatorie",
+    "newPasswordPattern": "Parola trebuie să aibă minim 8 caractere, cu majuscule, litere mici, cifre și un caracter special",
+    "confirmPasswordLabel": "Confirmă parola",
+    "confirmPasswordRequired": "Te rugăm confirmă parola",
+    "passwordsMismatch": "Parolele nu coincid",
+    "resetButton": "Resetează parola",
+    "backToAccount": "Înapoi la contul meu",
+    "backToSignIn": "Înapoi la autentificare",
+    "successMessage": "Parola a fost resetată cu succes!",
+    "errorMessage": "Resetare eșuată"
+  },
+  "updatePassword": {
+    "updating": "Se actualizează parola...",
+    "currentPasswordLabel": "Parola curentă",
+    "currentPasswordPlaceholder": "Introdu parola curentă",
+    "currentPasswordRequired": "Parola curentă este obligatorie",
+    "currentPasswordInvalid": "Formatul parolei curente este invalid",
+    "newPasswordLabel": "Parola nouă",
+    "newPasswordPlaceholder": "Introdu parola nouă",
+    "newPasswordHint": "Trebuie să conțină: 8+ caractere, majuscule, litere mici, cifre, caracter special",
+    "newPasswordRequired": "Parola nouă este obligatorie",
+    "newPasswordPattern": "Parola trebuie să conțină cel puțin 8 caractere, incluzând majuscule, litere mici, cifre și caracter special",
+    "confirmPasswordLabel": "Confirmă parola nouă",
+    "confirmPasswordPlaceholder": "Confirmă parola nouă",
+    "confirmPasswordRequired": "Te rugăm confirmă parola nouă",
+    "passwordsMismatch": "Parolele nu coincid",
+    "forgotPassword": "Ai uitat parola?",
+    "changeButton": "Schimbă parola",
+    "validationError": "Te rugăm corectează toate erorile de validare înainte de trimitere!",
+    "successMessage": "Parola a fost actualizată cu succes!",
+    "errorMessage": "Eroare la actualizarea parolei",
+    "resetCodeSent": "Codul de resetare a fost trimis pe email!",
+    "resetCodeFailed": "Trimiterea codului de resetare a eșuat",
+    "emailNotFound": "Email-ul utilizatorului nu a fost găsit"
+  },
+  "adminDashboard": {
+    "title": "Panou Admin",
+    "subtitle": "Bine ai venit în Panoul Admin. Te rugăm selectează o opțiune pentru a continua...",
+    "accessButton": "Acces",
+    "manageUsers": {
+      "title": "Gestionează utilizatori",
+      "description": "Vizualizează și gestionează toți utilizatorii aplicației"
+    },
+    "statistics": {
+      "title": "Statistici",
+      "description": "Vizualizează statistici și rapoarte despre utilizatori"
+    },
+    "systemSettings": {
+      "title": "Setări sistem",
+      "description": "Configurează setările generale ale aplicației"
+    },
+    "activityLogs": {
+      "title": "Jurnale activitate",
+      "description": "Monitorizează activitățile utilizatorilor"
+    }
+  },
+  "allUsers": {
+    "title": "Gestionează utilizatori",
+    "subtitle": "Vizualizează și gestionează toți utilizatorii aplicației",
+    "loadingUsers": "Se încarcă utilizatorii...",
+    "loadAgain": "Încarcă din nou",
+    "sortBy": "Sortează după",
+    "sortOptions": {
+      "id": "ID",
+      "firstname": "Prenume",
+      "lastname": "Nume",
+      "email": "Email",
+      "createdAt": "Data creării"
+    },
+    "sortAscending": "Sortare crescătoare",
+    "sortDescending": "Sortare descrescătoare",
+    "showing": "Se afișează",
+    "of": "din",
+    "users": "utilizatori",
+    "noUsersFound": "Nu s-au găsit utilizatori",
+    "mfaEnabled": "Activat",
+    "mfaDisabled": "Dezactivat",
+    "viewButton": "Vizualizează",
+    "sendEmailButton": "Trimite Email",
+    "deleteButton": "Șterge",
+    "confirmDelete": "Ești sigur că vrei să ștergi acest utilizator? Această acțiune nu poate fi anulată.",
+    "userDeletedSuccess": "Utilizatorul a fost șters cu succes!",
+    "deleteError": "Ceva nu a mers bine. Te rugăm încearcă din nou!",
+      "loadError": "Eroare la încărcarea utilizatorilor",
+      "ok": "Ok",
+      "close": "Închide",
+      "paginator": {
+        "itemsPerPage": "Utilizatori per pagină",
+        "nextPage": "Pagina următoare",
+        "previousPage": "Pagina anterioară",
+        "firstPage": "Prima pagină",
+        "lastPage": "Ultima pagină",
+        "ofLabel": "din"
+    }
+  },
+  "viewUserAccount": {
+    "loadingUserInfo": "Se încarcă informațiile utilizatorului...",
+    "id": "ID",
+    "email": "Email",
+    "createdAt": "Creat la",
+    "twoFactorAuth": "Autentificare în doi pași",
+    "enabled": "Activat",
+    "notEnabled": "Dezactivat",
+    "errorLoading": "Ceva nu a mers bine!",
+    "ok": "Ok"
+  },
+  "sendEmail": {
+    "processing": "Se procesează...",
+    "title": "Mesaj nou",
+    "to": "Către",
+    "subjectLabel": "Subiect",
+    "subjectRequired": "Subiectul este obligatoriu!",
+    "subjectPlaceholder": "Introdu subiectul",
+    "contentLabel": "Conținut",
+    "contentRequired": "Conținutul este obligatoriu!",
+    "contentPlaceholder": "Scrie mesajul aici...",
+    "sendButton": "Trimite",
+    "successMessage": "Email trimis cu succes!",
+    "errorMessage": "Eroare la trimiterea emailului! Te rugăm încearcă din nou.",
+    "ok": "Ok"
+  }
+}

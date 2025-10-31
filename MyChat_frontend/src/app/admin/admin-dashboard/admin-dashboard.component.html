@@ -1,0 +1,39 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="admin-dashboard">
+  <div class="dashboard-header">
+    <h1>{{ "adminDashboard.title" | translate }}</h1>
+    <p>
+      {{ "adminDashboard.subtitle" | translate }}
+    </p>
+  </div>
+
+  <div class="dashboard-grid">
+    <mat-grid-list cols="2" rowHeight="200px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let item of dashboardItems">
+        <mat-card class="dashboard-card" [ngClass]="'card-' + item.color">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <mat-icon>{{ item.icon }}</mat-icon>
+            </div>
+            <mat-card-title>{{ item.title }}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>{{ item.description }}</p>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <button
+              mat-raised-button
+              [color]="item.color"
+              [routerLink]="item.route"
+            >
+              <mat-icon>arrow_forward</mat-icon>
+              {{ "adminDashboard.accessButton" | translate }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="enter-email-container">
+  <div class="email-container">
+    <nz-spin
+      [nzSpinning]="isSpinning()"
+      [nzSize]="'large'"
+      [nzTip]="'enterEmail.redirecting' | translate"
+      class="proccesing-spinner"
+    >
+      <div class="card-header">
+        <h1 class="form-title">{{ "enterEmail.title" | translate }}</h1>
+        <p class="form-subtitle">{{ "enterEmail.subtitle" | translate }}</p>
+      </div>
+
+      <form
+        nz-form
+        [formGroup]="emailForm"
+        (ngSubmit)="onSubmit()"
+        class="email-form"
+      >
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            [nzErrorTip]="'enterEmail.emailInvalid' | translate"
+            [nzValidateStatus]="emailForm.controls['email']"
+          >
+            <input
+              nz-input
+              [placeholder]="'enterEmail.emailPlaceholder' | translate"
+              id="email"
+              formControlName="email"
+              class="form-input"
+            />
+          </nz-form-control>
+        </nz-form-item>
+
+        <button
+          nz-button
+          class="submit-button"
+          [nzType]="'primary'"
+          type="submit"
+          [disabled]="emailForm.invalid"
+        >
+          {{ "enterEmail.sendEmail" | translate }}
+        </button>
+      </form>
+    </nz-spin>
+  </div>
+</div>

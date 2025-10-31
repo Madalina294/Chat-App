@@ -1,0 +1,123 @@
+.welcome-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.user-profile-section {
+  margin-bottom: 3rem;
+}
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+
+  p {
+    margin-top: 16px;
+    color: #666;
+  }
+}
+
+.profile-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-avatar {
+  flex-shrink: 0;
+
+  .user-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #e5e7eb;
+  }
+
+  .default-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+.profile-info {
+  flex: 1;
+
+  h2 {
+    color: #1f2937;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #000000;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+
+    &.user-role {
+      color: #059669;
+      font-weight: 500;
+    }
+
+    &.user-id {
+
+      color: #0a0a0b;
+      font-size: 0.875rem;
+
+      mat-icon{
+        width: fit-content;
+        height: 30px;
+        margin-bottom: -10px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.actions {
+  text-align: center;
+
+  .logout-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: #b91c1c;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+}

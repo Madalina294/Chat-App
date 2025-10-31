@@ -1,0 +1,22 @@
+
+@use "assets/styles/theme.scss";
+
+html, body {
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Dark mode body background
+ body.dark-mode {
+  background-color: #141414 !important;
+}
+
+// Light mode body background
+body.light-mode {
+  background-color: #ffffff !important;
+}

@@ -1,0 +1,311 @@
+{
+  "app": {
+    "name": "App Template"
+  },
+  "header": {
+    "title": "Dashboard",
+    "logout": "Log out",
+    "language": "Language",
+    "theme": "Theme",
+    "adminPanel": "Admin Panel",
+    "dashboardAdmin": "Dashboard Admin",
+    "manageUsers": "Manage Users",
+    "adminProfile": "Admin Profile",
+    "homePage": "Home Page",
+    "myDashboard": "My Dashboard",
+    "myAccount": "My Account",
+    "welcome": "Welcome"
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Create account",
+    "email": "Email",
+    "password": "Password"
+  },
+  "profile": {
+    "title": "Profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "changePicture": "Change Picture",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "emailFromGoogle": "Email (from Google)",
+    "emailInvalid": "Please enter a valid email",
+    "enable2FA": "Enable Two-Factor Authentication (2FA)",
+    "google2FAManaged": "Two-Factor Authentication is managed by Google",
+    "2FARequireLogin": "Enabling 2FA will require you to login again",
+    "updateProfile": "Update Profile",
+    "changePassword": "Change Password",
+    "editPreferences": "Edit preferences",
+    "manageGoogleAccount": "Manage Google Account",
+    "signOut": "Sign Out",
+    "deleteAccount": "Delete Account",
+    "invalidImageType": "Please select a valid image file!",
+    "imageTooLarge": "The image is too large! The maximum size is 5MB.",
+    "fillFieldsCorrectly": "Please fill the fields correctly!",
+    "profileUpdated": "Profile updated successfully!",
+    "2FAEnabled": "2FA enabled! Please login again.",
+    "somethingWentWrong": "Something went wrong!",
+    "confirmDelete": {
+      "message": "Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently lost.",
+      "title": "Delete Account",
+      "confirmText": "Delete Account",
+      "cancelText": "Cancel"
+    },
+    "accountDeleted": "Account deleted successfully!",
+    "deleteOwnAccount": "You can only delete your own account!",
+    "accountNotFound": "Account not found!",
+    "userIdNotFound": "User ID not found! Please login again.",
+    "ok": "Ok"
+  },
+  "preferences": {
+    "title": "Edit Preferences",
+    "subtitle": "Customize your application settings",
+    "language": "Language",
+    "theme": "Theme",
+    "themePreference": {
+      "title": "Theme Preference",
+      "description": "Choose your preferred theme for the application",
+      "label": "Theme",
+      "dark": "Dark Mode",
+      "light": "Light Mode"
+    },
+    "languagePreference": {
+      "title": "Language Preference",
+      "description": "Choose your preferred language for the application",
+      "label": "Language",
+      "english": "English",
+      "romanian": "Română"
+    },
+    "backToProfile": "Back to Profile",
+    "themeUpdated": "Theme preference updated successfully!",
+    "themeUpdateError": "Error updating theme preference",
+    "languageUpdated": "Language preference updated successfully!",
+    "languageUpdateError": "Error updating language preference"
+  },
+  "common": {
+    "search": "Search",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close"
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your account",
+    "signingIn": "Signing in...",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "passwordRules": "Password must contain at least 8 characters with uppercase, lowercase, number and special character",
+    "forgotPassword": "Forgot password?",
+    "orContinueWith": "Or continue with",
+    "continueWithGoogle": "Continue with Google",
+    "noAccount": "Don't have an account?"
+  },
+  "mfa": {
+    "title": "Two-Factor Authentication",
+    "subtitle": "Scan the QR code with your authenticator app",
+    "loading": "Loading QR Code...",
+    "qrAlt": "QR Code",
+    "instructions": "Scan this QR code with Google Authenticator, Authy, or any compatible TOTP app",
+    "enterCode": "Enter the 6-digit code from your app",
+    "verify": "Verify & Continue"
+  },
+  "register": {
+    "creatingAccount": "Creating account...",
+    "title": "Create Account",
+    "subtitle": "Join us today and get started",
+    "firstName": "First Name",
+    "firstNameRequired": "First name is required",
+    "firstNameMin": "First name must be at least 2 characters",
+    "lastName": "Last Name",
+    "lastNameRequired": "Last name is required",
+    "lastNameMin": "Last name must be at least 2 characters",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "passwordRules": "Password must contain at least 8 characters with uppercase, lowercase, number and special character",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordsMismatch": "Passwords do not match",
+    "enableMfa": "Enable Two-Factor Authentication (Recommended)",
+    "enableMfaDesc": "Secure your account with an authenticator app. You'll be logged in automatically after setup.",
+    "submit": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "verifying": "Verifying code...",
+    "mfaTitle": "Setup Two-Factor Authentication",
+    "mfaSubtitle": "Secure your account with 2FA",
+    "complete": "Complete Registration",
+    "helpTitle": "Need help?",
+    "helpText": "Make sure your device's time is synchronized and that you've entered the code correctly."
+  },
+  "oauth": {
+    "processing": {
+      "title": "Processing Authentication",
+      "subtitle": "Please wait while we complete your login..."
+    },
+    "steps": {
+      "redirected": "Redirected from provider",
+      "processing": "Processing authentication",
+      "redirecting": "Redirecting to dashboard"
+    },
+    "status": {
+      "verifying": "Verifying your credentials...",
+      "loading": "Loading your profile..."
+    },
+    "error": {
+      "title": "Authentication Failed",
+      "message": "There was an issue processing your login. Please try again.",
+      "retry": "Try Again"
+    }
+},
+  "welcome": {
+    "title": "Welcome, {{firstName}} {{lastName}}!",
+    "subtitle": "You are successfully logged in to your account.",
+    "profile": {
+      "role": "Role",
+      "userId": "User ID"
+    },
+    "actions": {
+      "logout": "Log Out"
+    }
+  },
+  "enterEmail": {
+    "redirecting": "Redirecting...",
+    "title": "Reset your password",
+    "subtitle": "Please enter your email",
+    "emailInvalid": "Please enter a valid email address",
+    "emailPlaceholder": "Email address",
+    "sendEmail": "Send email",
+    "successMessage": "Reset code sent to your email!",
+    "errorMessage": "Something went wrong!"
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "subtitle": "Enter the 6-digit code sent to:",
+    "resetting": "Reseting password...",
+    "resetCodeLabel": "Reset Code",
+    "resetCodeError": "Please enter the 6-digit code",
+    "resetCodePlaceholder": "000000",
+    "newPasswordLabel": "New Password",
+    "newPasswordRequired": "New password is required",
+    "newPasswordPattern": "Password must be at least 8 characters with uppercase, lowercase, number and special character",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordsMismatch": "Passwords do not match",
+    "resetButton": "Reset Password",
+    "backToAccount": "Back to My Account",
+    "backToSignIn": "Back to Sign In",
+    "successMessage": "Password reset successfully!",
+    "errorMessage": "Reset failed"
+  },
+  "updatePassword": {
+    "updating": "Updating password...",
+    "currentPasswordLabel": "Current Password",
+    "currentPasswordPlaceholder": "Enter current password",
+    "currentPasswordRequired": "Current password is required",
+    "currentPasswordInvalid": "Current password format is invalid",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "newPasswordHint": "Must contain: 8+ chars, uppercase, lowercase, number, special char",
+    "newPasswordRequired": "New password is required",
+    "newPasswordPattern": "Password must contain at least 8 characters, including uppercase, lowercase, number and special character",
+    "confirmPasswordLabel": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Confirm new password",
+    "confirmPasswordRequired": "Please confirm your new password",
+    "passwordsMismatch": "Passwords do not match",
+    "forgotPassword": "Forgot password?",
+    "changeButton": "Change Password",
+    "validationError": "Please fix all validation errors before submitting!",
+    "successMessage": "Password updated successfully!",
+    "errorMessage": "Error updating password",
+    "resetCodeSent": "Reset code sent to your email!",
+    "resetCodeFailed": "Failed to send reset code",
+    "emailNotFound": "User email not found"
+  },
+  "adminDashboard": {
+    "title": "Admin Dashboard",
+    "subtitle": "Welcome to the Admin Dashboard. Please select an option to continue...",
+    "accessButton": "Access",
+    "manageUsers": {
+      "title": "Manage Users",
+      "description": "View and Manage all the users of the application"
+    },
+    "statistics": {
+      "title": "Statistics",
+      "description": "View statistics and reports about users"
+    },
+    "systemSettings": {
+      "title": "System Settings",
+      "description": "Configure general settings of the application"
+    },
+    "activityLogs": {
+      "title": "Activity Logs",
+      "description": "Monitor the activities of the users"
+    }
+  },
+  "allUsers": {
+    "title": "Manage Users",
+    "subtitle": "View and Manage all the users of the application",
+    "loadingUsers": "Loading users...",
+    "loadAgain": "Load again",
+    "sortBy": "Sort by",
+    "sortOptions": {
+      "id": "ID",
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "email": "Email",
+      "createdAt": "Created Date"
+    },
+    "sortAscending": "Sort Ascending",
+    "sortDescending": "Sort Descending",
+    "showing": "Showing",
+    "of": "of",
+    "users": "users",
+    "noUsersFound": "No users found",
+    "mfaEnabled": "Enabled",
+    "mfaDisabled": "Not enabled",
+    "viewButton": "View",
+    "sendEmailButton": "Send Email",
+    "deleteButton": "Delete",
+    "confirmDelete": "Are you sure you want to delete this user? This action cannot be undone.",
+    "userDeletedSuccess": "User deleted successfully!",
+    "deleteError": "Something went wrong. Please try again!",
+      "loadError": "Error at loading the users",
+      "ok": "Ok",
+      "close": "Close",
+      "paginator": {
+        "itemsPerPage": "Items per page",
+        "nextPage": "Next page",
+        "previousPage": "Previous page",
+        "firstPage": "First page",
+        "lastPage": "Last page",
+        "ofLabel": "of"
+      }
+    },
+  "viewUserAccount": {
+    "loadingUserInfo": "Loading user info...",
+    "id": "ID",
+    "email": "Email",
+    "createdAt": "Created At",
+    "twoFactorAuth": "Two factor authentication",
+    "enabled": "Enabled",
+    "notEnabled": "Not enabled",
+    "errorLoading": "Something went wrong!",
+    "ok": "Ok"
+  },
+  "sendEmail": {
+    "processing": "Processing...",
+    "title": "New Message",
+    "to": "To",
+    "subjectLabel": "Subject",
+    "subjectRequired": "The subject is required!",
+    "subjectPlaceholder": "Enter subject",
+    "contentLabel": "Content",
+    "contentRequired": "The content is required!",
+    "contentPlaceholder": "Write your message here...",
+    "sendButton": "Send",
+    "successMessage": "Email sent successfully!",
+    "errorMessage": "Error at sending the email! Please try again.",
+    "ok": "Ok"
+  }
+}

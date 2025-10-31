@@ -1,0 +1,173 @@
+<!-- Main Container -->
+<div class="login-page-container">
+  <!-- Login Form Section -->
+  <div class="login-card" *ngIf="!authResponse?.mfaEnabled">
+    <nz-spin
+      [nzSpinning]="isSpinning()"
+      [nzSize]="'large'"
+      nzTip="{{ 'login.signingIn' | translate }}"
+      class="login-spinner"
+    >
+      <div class="card-header">
+        <h1 class="login-title">{{ "login.title" | translate }}</h1>
+        <p class="login-subtitle">{{ "login.subtitle" | translate }}</p>
+      </div>
+
+      <form
+        nz-form
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+        class="login-form"
+      >
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            nzErrorTip="{{ 'login.emailInvalid' | translate }}"
+            [nzValidateStatus]="loginForm.controls['email']"
+          >
+            <input
+              nz-input
+              placeholder="{{ 'auth.email' | translate }}"
+              id="email"
+              formControlName="email"
+              class="form-input"
+            />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control
+            nzHasFeedback
+            [nzErrorTip]="errorPass"
+            [nzValidateStatus]="loginForm.controls['password']"
+          >
+            <div class="password-input-wrapper">
+              <input
+                nz-input
+                placeholder="{{ 'auth.password' | translate }}"
+                [type]="passwordVisible() ? 'text' : 'password'"
+                id="password"
+                formControlName="password"
+                class="form-input password-input"
+              />
+              <span
+                nz-icon
+                [nzType]="passwordVisible() ? 'eye' : 'eye-invisible'"
+                (click)="passwordVisible.set(!passwordVisible())"
+                class="eye-icon"
+              ></span>
+            </div>
+            <ng-template style="margin-bottom: 10px" #errorPass let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                {{ "login.passwordRequired" | translate }}
+              </ng-container>
+              <ng-container
+                *ngIf="control.hasError('pattern')"
+                style="margin-bottom: 10px"
+              >
+                {{ "login.passwordRules" | translate }}
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <div style="margin-top: 20px; padding-top: 10px;">
+          <a href="/enter-email">{{ "login.forgotPassword" | translate }}</a>
+        </div>
+
+        <button
+          nz-button
+          class="login-button"
+          [nzType]="'primary'"
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          {{ "auth.login" | translate }}
+        </button>
+
+        <!-- OAuth Login Section -->
+        <div class="oauth-section">
+          <div class="divider">
+            <span>{{ "login.orContinueWith" | translate }}</span>
+          </div>
+
+          <div class="oauth-buttons">
+            <button nz-button class="google-btn" (click)="loginWithGoogle()">
+              {{ "login.continueWithGoogle" | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div class="signup-link">
+          {{ "login.noAccount" | translate }}
+          <a routerLink="/register">{{ "auth.register" | translate }}</a>
+        </div>
+      </form>
+    </nz-spin>
+  </div>
+
+  <!-- 2FA Verification Section -->
+  <div
+    class="login-card mfa-card"
+    *ngIf="showMfaSection()"
+    style="display: block !important; visibility: visible !important"
+  >
+    <div class="card-header">
+      <h1 class="login-title">{{ "mfa.title" | translate }}</h1>
+      <p class="login-subtitle">{{ "mfa.subtitle" | translate }}</p>
+    </div>
+
+    <div class="qr-section">
+      <div class="qr-code-container">
+        <div *ngIf="!qrCodeUri" class="qr-loading">
+          {{ "mfa.loading" | translate }}
+        </div>
+        <img
+          *ngIf="qrCodeUri"
+          [src]="qrCodeUri"
+          [alt]="'mfa.qrAlt' | translate"
+          class="qr-code"
+          (load)="onQrCodeLoaded()"
+          (error)="onQrCodeError($event)"
+        />
+      </div>
+      <p class="qr-instructions">
+        {{ "mfa.instructions" | translate }}
+      </p>
+    </div>
+    <nz-spin
+      [nzSpinning]="isSpinning()"
+      [nzSize]="'large'"
+      [nzTip]="'login.signingIn' | translate"
+      class="login-spinner"
+    >
+      <form class="verification-form">
+        <nz-form-item>
+          <label class="verification-label">{{
+            "mfa.enterCode" | translate
+          }}</label>
+          <input
+            nz-input
+            type="text"
+            placeholder="000000"
+            [(ngModel)]="otpCode"
+            name="otpCode"
+            maxlength="6"
+            class="verification-input"
+          />
+        </nz-form-item>
+
+        <button
+          nz-button
+          [nzType]="'primary'"
+          type="button"
+          (click)="verifyCode()"
+          [disabled]="otpCode.length !== 6"
+          class="verify-button"
+        >
+          {{ "mfa.verify" | translate }}
+        </button>
+      </form>
+    </nz-spin>
+  </div>
+</div>

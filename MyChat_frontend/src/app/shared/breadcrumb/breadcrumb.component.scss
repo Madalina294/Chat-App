@@ -1,0 +1,101 @@
+.breadcrumb-nav {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 12px 0;
+  margin-bottom: 24px;
+}
+
+.breadcrumb-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+  
+  .breadcrumb-link {
+    color: #1976d2;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: #e3f2fd;
+      color: #0d47a1;
+    }
+  }
+  
+  .breadcrumb-current {
+    color: #666;
+    font-weight: 500;
+    padding: 4px 8px;
+  }
+  
+  &.active {
+    .breadcrumb-current {
+      color: #333;
+    }
+  }
+}
+
+.breadcrumb-separator {
+  color: #999;
+  font-size: 18px;
+  margin: 0 4px;
+}
+
+// Stilurile pentru dark/light mode sunt acum în theme.scss global
+
+// Responsive design
+@media (max-width: 768px) {
+  .breadcrumb-container {
+    padding: 0 16px;
+  }
+  
+  .breadcrumb-list {
+    font-size: 0.8rem;
+  }
+  
+  .breadcrumb-separator {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb-nav {
+    padding: 8px 0;
+    margin-bottom: 16px;
+  }
+  
+  .breadcrumb-container {
+    padding: 0 12px;
+  }
+  
+  .breadcrumb-list {
+    gap: 2px;
+  }
+  
+  .breadcrumb-item {
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+}

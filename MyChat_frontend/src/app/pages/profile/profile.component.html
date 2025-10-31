@@ -1,0 +1,88 @@
+<div class="profile-main-container">
+  <div class="profile-card">
+    <!-- Preview imagine -->
+    <div class="image-section">
+      <img [src]="imageToDisplay()" class="user-profile" alt="profile-img" />
+      <input
+        type="file"
+        #fileInput
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        style="display: none"
+      />
+      <button mat-button (click)="fileInput.click()">
+        {{ "profile.changePicture" | translate }}
+      </button>
+    </div>
+
+    <form [formGroup]="updateForm" (ngSubmit)="updateProfile()">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "profile.firstName" | translate }}</mat-label>
+        <input matInput formControlName="firstName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "profile.lastName" | translate }}</mat-label>
+        <input matInput formControlName="lastName" />
+      </mat-form-field>
+
+      <!-- Email field - NU afișa pentru utilizatorii Google (email-ul vine de la Google) -->
+      <mat-form-field appearance="outline" *ngIf="!isGoogleUser()">
+        <mat-label>{{ "profile.email" | translate }}</mat-label>
+        <input matInput formControlName="email" type="email" />
+        <mat-error *ngIf="updateForm.get('email')?.hasError('email')">
+          {{ "profile.emailInvalid" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Pentru utilizatorii Google, afișează email-ul ca read-only -->
+      <mat-form-field appearance="outline" *ngIf="isGoogleUser()">
+        <mat-label>{{ "profile.emailFromGoogle" | translate }}</mat-label>
+        <input matInput [value]="user()?.email || ''" readonly />
+      </mat-form-field>
+
+      <!-- 2FA checkbox - NU afișa pentru utilizatorii Google (Google are deja 2FA) -->
+      <mat-checkbox formControlName="mfaEnabled" *ngIf="!isGoogleUser()">
+        {{ "profile.enable2FA" | translate }}
+      </mat-checkbox>
+
+      <!-- Pentru utilizatorii Google, afișează informație despre 2FA Google -->
+      <div *ngIf="isGoogleUser()" class="google-2fa-info">
+        <mat-icon>security</mat-icon>
+        <span>{{ "profile.google2FAManaged" | translate }}</span>
+      </div>
+
+      <small *ngIf="user() && !user()!.mfaEnabled && !isGoogleUser()">
+        {{ "profile.2FARequireLogin" | translate }}
+      </small>
+
+      <div class="button-group">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="updateForm.invalid"
+        >
+          {{ "profile.updateProfile" | translate }}
+        </button>
+      </div>
+    </form>
+    <div class="button-group">
+      <button mat-button routerLink="/update-password" *ngIf="!isGoogleUser()">
+        {{ "profile.changePassword" | translate }}
+      </button>
+      <button mat-button routerLink="/edit-preferences">
+        {{ "profile.editPreferences" | translate }}
+      </button>
+      <button mat-button (click)="goToGoogleAccount()" *ngIf="isGoogleUser()">
+        {{ "profile.manageGoogleAccount" | translate }}
+      </button>
+      <button mat-button (click)="logout()">
+        {{ "profile.signOut" | translate }}
+      </button>
+      <button mat-button color="warn" (click)="deleteAccount()">
+        {{ "profile.deleteAccount" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

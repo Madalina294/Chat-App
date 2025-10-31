@@ -1,0 +1,87 @@
+<!-- OAuth Callback Container -->
+<div class="oauth-callback-container">
+  <!-- Main Processing Card -->
+  <div class="processing-card">
+    <!-- Header Section -->
+    <div class="card-header">
+      <div class="loading-icon">
+        <div class="spinner"></div>
+      </div>
+      <h1 class="processing-title">
+        {{ "oauth.processing.title" | translate }}
+      </h1>
+      <p class="processing-subtitle">
+        {{ "oauth.processing.subtitle" | translate }}
+      </p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-section">
+      <div class="progress-steps">
+        <div class="step" [class.completed]="processingStep >= 1">
+          <div class="step-icon">✓</div>
+          <span class="step-text">{{
+            "oauth.steps.redirected" | translate
+          }}</span>
+        </div>
+        <div
+          class="step"
+          [class.active]="processingStep === 2"
+          [class.completed]="processingStep > 2"
+        >
+          <div class="step-icon">
+            <div class="mini-spinner" *ngIf="processingStep === 2"></div>
+            <span *ngIf="processingStep !== 2">✓</span>
+          </div>
+          <span class="step-text">{{
+            "oauth.steps.processing" | translate
+          }}</span>
+        </div>
+        <div
+          class="step"
+          [class.active]="processingStep === 3"
+          [class.completed]="processingStep > 3"
+        >
+          <div class="step-icon">
+            <div class="mini-spinner" *ngIf="processingStep === 3"></div>
+            <span *ngIf="processingStep !== 3">3</span>
+          </div>
+          <span class="step-text">{{
+            "oauth.steps.redirecting" | translate
+          }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Messages -->
+    <div class="status-messages">
+      <div class="status-item">
+        <div class="status-icon">🔐</div>
+        <span class="status-text">{{
+          "oauth.status.verifying" | translate
+        }}</span>
+      </div>
+      <div class="status-item">
+        <div class="status-icon">👤</div>
+        <span class="status-text">{{
+          "oauth.status.loading" | translate
+        }}</span>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="error-state" *ngIf="showError">
+      <div class="error-icon">⚠️</div>
+      <h3 class="error-title">{{ "oauth.error.title" | translate }}</h3>
+      <p class="error-message">
+        {{ "oauth.error.message" | translate }}
+      </p>
+      <button class="retry-button" (click)="retryAuthentication()">
+        {{ "oauth.error.retry" | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Background Pattern -->
+  <div class="background-pattern"></div>
+</div>

@@ -1,0 +1,50 @@
+<div class="welcome-container">
+  <div *ngIf="isSpinning()" class="loading-container">
+    <mat-progress-spinner
+      mode="indeterminate"
+      diameter="50"
+    ></mat-progress-spinner>
+    <p>{{ "viewUserAccount.loadingUserInfo" | translate }}</p>
+  </div>
+
+  <div class="user-profile-section" *ngIf="user">
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img
+          *ngIf="user.imageUrl"
+          [src]="getFullImageUrl(user.imageUrl)"
+          alt="User Avatar"
+          class="user-image"
+        />
+        <div *ngIf="!user.imageUrl" class="default-avatar">
+          {{ user.firstName?.charAt(0) }}{{ user.lastName?.charAt(0) }}
+        </div>
+      </div>
+      <div class="profile-info">
+        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+        <p class="user-id">
+          {{ "viewUserAccount.id" | translate }}: {{ user.userId }}
+        </p>
+        <p class="user-id">
+          <mat-icon>alternate_email</mat-icon
+          ><strong>{{ "viewUserAccount.email" | translate }}:</strong>
+          {{ user.email }}
+        </p>
+        <p class="user-id">
+          <mat-icon>date_range</mat-icon
+          ><strong>{{ "viewUserAccount.createdAt" | translate }}:</strong>
+          {{ user.createdAt }}
+        </p>
+        <p class="user-id">
+          <mat-icon>security</mat-icon
+          ><strong>{{ "viewUserAccount.twoFactorAuth" | translate }}:</strong>
+          {{
+            user.mfaEnabled
+              ? ("viewUserAccount.enabled" | translate)
+              : ("viewUserAccount.notEnabled" | translate)
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

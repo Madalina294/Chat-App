@@ -1,0 +1,49 @@
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Configuration Files with Sensitive Data ###
+# Exclude application.properties with sensitive information
+src/main/resources/application.properties
+src/main/resources/application-*.properties
+
+# Exclude any environment specific configs
+*.env
+.env
+.env.local
+.env.production
+
+# Exclude log files
+*.log
+logs/

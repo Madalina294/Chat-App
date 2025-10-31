@@ -1,0 +1,22 @@
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-dialog-content p {
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+mat-dialog-actions {
+  gap: 8px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+// Stilurile pentru dark/light mode sunt acum în theme.scss global

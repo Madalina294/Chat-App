@@ -1,0 +1,333 @@
+// Edit Preferences Component Styles
+
+// Main container
+.edit-preferences-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  position: relative;
+
+  // Subtle pattern overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+
+// Main preferences card
+.preferences-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+  0 0 0 1px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  mat-card-header {
+    padding: 32px 32px 16px 32px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+
+    mat-card-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin: 0;
+      text-align: center;
+    }
+
+    mat-card-subtitle {
+      font-size: 1rem;
+      color: #718096;
+      margin: 8px 0 0 0;
+      text-align: center;
+    }
+  }
+
+  mat-card-content {
+    padding: 32px;
+  }
+
+  mat-card-actions {
+    padding: 16px 32px 32px 32px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+    button {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      text-transform: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+
+  // Preference section
+  .preference-section {
+    margin-bottom: 32px;
+
+    &.theme {
+      h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin: 0 0 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &::before {
+          content: '🎨';
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &.language {
+      h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin: 0 0 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &::before {
+          content: '🌍';
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    p {
+      color: #718096;
+      margin: 0 0 24px 0;
+      line-height: 1.5;
+    }
+  }
+
+  // Theme selector
+  .theme-selector {
+    width: 100%;
+    margin-bottom: 24px;
+
+    ::ng-deep {
+      .mat-mdc-form-field {
+        .mat-mdc-text-field-wrapper {
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 12px;
+          border: 2px solid rgba(102, 126, 234, 0.2);
+          transition: all 0.3s ease;
+
+          &:hover {
+            border-color: rgba(102, 126, 234, 0.4);
+            background: rgba(255, 255, 255, 0.9);
+          }
+
+          &.mdc-text-field--focused {
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          }
+        }
+
+        .mat-mdc-form-field-label {
+          color: #4a5568;
+          font-weight: 500;
+        }
+
+        .mat-mdc-select-value {
+          color: #2d3748;
+          font-weight: 500;
+        }
+
+        .mat-mdc-select-arrow {
+          color: #667eea;
+        }
+      }
+    }
+  }
+
+  .language-selector {
+    width: 100%;
+    margin-bottom: 24px;
+
+    ::ng-deep {
+      .mat-mdc-form-field {
+        .mat-mdc-text-field-wrapper {
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 12px;
+          border: 2px solid rgba(102, 126, 234, 0.2);
+          transition: all 0.3s ease;
+
+          &:hover {
+            border-color: rgba(102, 126, 234, 0.4);
+            background: rgba(255, 255, 255, 0.9);
+          }
+
+          &.mdc-text-field--focused {
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          }
+        }
+
+        .mat-mdc-form-field-label {
+          color: #4a5568;
+          font-weight: 500;
+        }
+
+        .mat-mdc-select-value {
+          color: #2d3748;
+          font-weight: 500;
+        }
+
+        .mat-mdc-select-arrow {
+          color: #667eea;
+        }
+      }
+    }
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
+    .edit-preferences-container {
+      padding: 16px;
+    }
+
+    .preferences-card {
+      max-width: 100%;
+
+      mat-card-header {
+        padding: 24px 24px 12px 24px;
+
+        mat-card-title {
+          font-size: 1.5rem;
+        }
+      }
+
+      mat-card-content {
+        padding: 24px;
+      }
+
+      mat-card-actions {
+        padding: 12px 24px 24px 24px;
+      }
+    }
+
+    .theme-preview .preview-item {
+      width: 100px;
+      height: 70px;
+    }
+  }
+
+  // Dark mode specific styles
+  :host-context(.dark-mode) {
+    .edit-preferences-container {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    }
+
+    .preferences-card {
+      background: rgba(26, 26, 46, 0.95);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+
+      mat-card-header {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+        border-bottom-color: rgba(102, 126, 234, 0.3);
+
+        mat-card-title {
+          color: #ffffff;
+        }
+
+        mat-card-subtitle {
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      mat-card-content {
+        .preference-section {
+          &.theme h3,
+          &.language h3 {
+            color: #ffffff;
+          }
+
+          p {
+            color: rgba(255, 255, 255, 0.7);
+          }
+        }
+
+        .theme-selector,
+        .language-selector {
+          ::ng-deep {
+            .mat-mdc-form-field {
+              .mat-mdc-text-field-wrapper {
+                background: rgba(22, 33, 62, 0.8);
+                border-color: rgba(102, 126, 234, 0.3);
+
+                &:hover {
+                  border-color: rgba(102, 126, 234, 0.5);
+                  background: rgba(22, 33, 62, 0.9);
+                }
+
+                &.mdc-text-field--focused {
+                  border-color: #667eea;
+                  background: rgba(22, 33, 62, 1);
+                  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+                }
+              }
+
+              .mat-mdc-form-field-label {
+                color: rgba(255, 255, 255, 0.8);
+              }
+
+              .mat-mdc-select-value {
+                color: #ffffff;
+              }
+
+              .mat-mdc-select-arrow {
+                color: #667eea;
+              }
+            }
+          }
+        }
+      }
+
+      mat-card-actions {
+        border-top-color: rgba(102, 126, 234, 0.2);
+
+        button {
+          color: #ffffff;
+
+          &:hover {
+            background: rgba(102, 126, 234, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+}

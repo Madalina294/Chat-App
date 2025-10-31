@@ -1,0 +1,64 @@
+<div class="edit-preferences-container">
+  <mat-card class="preferences-card">
+    <mat-card-header>
+      <mat-card-title>{{ "preferences.title" | translate }}</mat-card-title>
+      <mat-card-subtitle>{{
+        "preferences.subtitle" | translate
+      }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="preference-section theme">
+        <h3>{{ "preferences.themePreference.title" | translate }}</h3>
+        <p>{{ "preferences.themePreference.description" | translate }}</p>
+
+        <mat-form-field appearance="outline" class="theme-selector">
+          <mat-label>{{
+            "preferences.themePreference.label" | translate
+          }}</mat-label>
+          <mat-select
+            [value]="selectedTheme()"
+            (selectionChange)="onThemeChange($event.value)"
+            [disabled]="isLoading()"
+          >
+            <mat-option value="dark">{{
+              "preferences.themePreference.dark" | translate
+            }}</mat-option>
+            <mat-option value="light">{{
+              "preferences.themePreference.light" | translate
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="preference-section language">
+        <h3>{{ "preferences.languagePreference.title" | translate }}</h3>
+        <p>{{ "preferences.languagePreference.description" | translate }}</p>
+
+        <mat-form-field appearance="outline" class="language-selector">
+          <mat-label>{{
+            "preferences.languagePreference.label" | translate
+          }}</mat-label>
+          <mat-select
+            [value]="selectedLanguage()"
+            (selectionChange)="onLanguageChange($event.value)"
+            [disabled]="isLoading()"
+          >
+            <mat-option value="en">{{
+              "preferences.languagePreference.english" | translate
+            }}</mat-option>
+            <mat-option value="ro">{{
+              "preferences.languagePreference.romanian" | translate
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button (click)="goBack()">
+        {{ "preferences.backToProfile" | translate }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

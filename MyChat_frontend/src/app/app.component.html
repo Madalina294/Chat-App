@@ -1,0 +1,155 @@
+<header class="app-header">
+  <mat-toolbar class="custom-toolbar">
+    <!-- Mobile Menu Button -->
+    <button
+      mat-icon-button
+      class="menu-button"
+      aria-label="Open navigation menu"
+      [matMenuTriggerFor]="menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Navigation Menu -->
+    <mat-menu #menu="matMenu" class="custom-menu">
+      <!-- Admin Menu Items -->
+      <div *ngIf="isAdminLoggedIn()" class="menu-section">
+        <div class="menu-header">
+          <mat-icon>admin_panel_settings</mat-icon>
+          <span>{{ "header.adminPanel" | translate }}</span>
+        </div>
+        <button mat-menu-item routerLink="/admin" class="menu-item">
+          <mat-icon>dashboard</mat-icon>
+          <span>{{ "header.dashboardAdmin" | translate }}</span>
+        </button>
+        <button mat-menu-item routerLink="/admin/all-users" class="menu-item">
+          <mat-icon>supervisor_account</mat-icon>
+          <span>{{ "header.manageUsers" | translate }}</span>
+        </button>
+        <button mat-menu-item routerLink="/profile" class="menu-item">
+          <mat-icon>account_circle</mat-icon>
+          <span>{{ "header.adminProfile" | translate }}</span>
+        </button>
+        <button mat-menu-item routerLink="/welcome" class="menu-item">
+          <mat-icon>home</mat-icon>
+          <span>{{ "header.homePage" | translate }}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()" class="menu-item logout">
+          <mat-icon>logout</mat-icon>
+          <span>{{ "header.logout" | translate }}</span>
+        </button>
+      </div>
+
+      <!-- User Menu Items -->
+      <div *ngIf="isCustomerLoggedIn()" class="menu-section">
+        <div class="menu-header">
+          <mat-icon>person</mat-icon>
+          <span>{{ "header.myDashboard" | translate }}</span>
+        </div>
+        <button mat-menu-item routerLink="/profile" class="menu-item">
+          <mat-icon>account_circle</mat-icon>
+          <span>{{ "header.myAccount" | translate }}</span>
+        </button>
+        <button mat-menu-item routerLink="/welcome" class="menu-item">
+          <mat-icon>home</mat-icon>
+          <span>{{ "header.homePage" | translate }}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()" class="menu-item logout">
+          <mat-icon>logout</mat-icon>
+          <span>{{ "header.logout" | translate }}</span>
+        </button>
+      </div>
+
+      <!-- Guest Menu Items -->
+      <div
+        *ngIf="!isCustomerLoggedIn() && !isAdminLoggedIn()"
+        class="menu-section"
+      >
+        <div class="menu-header">
+          <mat-icon>login</mat-icon>
+          <span>{{ "header.welcome" | translate }}</span>
+        </div>
+        <button mat-menu-item routerLink="/login" class="menu-item">
+          <mat-icon>login</mat-icon>
+          <span>{{ "auth.login" | translate }}</span>
+        </button>
+      </div>
+    </mat-menu>
+
+    <!-- App Logo & Title -->
+    <div class="app-brand" routerLink="/welcome">
+      <mat-icon class="app-logo">article</mat-icon>
+      <span class="app-title">App</span>
+    </div>
+
+    <div class="lang-switch">
+      <button
+        mat-button
+        [class.active]="lang.current === 'ro'"
+        (click)="changeLanguage('ro')"
+      >
+        RO
+      </button>
+      <button
+        mat-button
+        [class.active]="lang.current === 'en'"
+        (click)="changeLanguage('en')"
+      >
+        EN
+      </button>
+    </div>
+
+    <span class="spacer"></span>
+
+    <!-- User Profile & Actions -->
+    <div class="header-actions">
+      <!-- Login Button for Guests -->
+      <button
+        mat-raised-button
+        class="login-btn"
+        routerLink="/login"
+        *ngIf="!isCustomerLoggedIn() && !isAdminLoggedIn()"
+      >
+        <mat-icon>login</mat-icon>
+        {{ "auth.login" | translate }}
+      </button>
+
+      <!-- User Profile -->
+      <div class="user-profile" *ngIf="isCustomerLoggedIn()">
+        <a routerLink="/profile" class="user-link">
+          <div class="user-avatar">
+            <img
+              *ngIf="userImage()"
+              [src]="getFullImageUrl(userImage())"
+              alt="User Avatar"
+              class="user-avatar-image"
+            />
+            <mat-icon *ngIf="!userImage()">person</mat-icon>
+          </div>
+          <span class="user-name">{{ userName() }}</span>
+        </a>
+      </div>
+
+      <!-- Admin Profile -->
+      <div class="user-profile" *ngIf="isAdminLoggedIn()">
+        <a routerLink="/profile" class="user-link">
+          <div class="user-avatar">
+            <img
+              *ngIf="userImage()"
+              [src]="getFullImageUrl(userImage())"
+              alt="User Avatar"
+              class="user-avatar-image"
+            />
+            <mat-icon *ngIf="!userImage()">person</mat-icon>
+          </div>
+          <span class="user-name">{{ userName() }}</span>
+        </a>
+      </div>
+
+      <app-theme></app-theme>
+    </div>
+  </mat-toolbar>
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,665 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+// Stiluri globale pentru body - se aplică automat
+body {
+  transition: background-color 0.3s ease;
+}
+
+// Fundal default (dark mode)
+body {
+  background-color: #141414;
+}
+
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$blue-palette
+    ),
+    density: (
+      scale: -2
+    )
+  )
+);
+
+$light-theme: mat.define-theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$blue-palette
+      ),
+      density: (
+        scale: -2
+      )
+    )
+);
+
+// Import ng-zorro CSS variables version for dynamic theming
+@import "ng-zorro-antd/ng-zorro-antd.variable.min.css";
+
+// Default dark theme variables for ng-zorro
+:root {
+  --ant-primary-color: #1890ff;
+  --ant-success-color: #52c41a;
+  --ant-warning-color: #faad14;
+  --ant-error-color: #f5222d;
+  --ant-info-color: #1890ff;
+  --ant-text-color: rgba(255, 255, 255, 0.85);
+  --ant-text-color-secondary: rgba(255, 255, 255, 0.65);
+  --ant-text-color-inverse: #000;
+  --ant-background-color: #141414;
+  --ant-background-color-light: #1f1f1f;
+  --ant-background-color-base: #000;
+  --ant-border-color-base: #303030;
+  --ant-border-color-split: #262626;
+  --ant-border-color-inverse: #fff;
+  --ant-box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  --ant-box-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  --ant-box-shadow-popover: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
+  --ant-box-shadow-drawer: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  --ant-box-shadow-modal: 0 24px 48px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+html{
+  @include mat.all-component-themes($dark-theme);
+  
+  &.light-mode {
+    @include mat.all-component-themes($light-theme);
+  }
+}
+
+.light-mode{
+  
+  // Light theme variables for ng-zorro
+  --ant-primary-color: #1890ff;
+  --ant-success-color: #52c41a;
+  --ant-warning-color: #faad14;
+  --ant-error-color: #f5222d;
+  --ant-info-color: #1890ff;
+  --ant-text-color: rgba(0, 0, 0, 0.85);
+  --ant-text-color-secondary: rgba(0, 0, 0, 0.65);
+  --ant-text-color-inverse: #fff;
+  --ant-background-color: #ffffff;
+  --ant-background-color-light: #fafafa;
+  --ant-background-color-base: #f5f5f5;
+  --ant-border-color-base: #d9d9d9;
+  --ant-border-color-split: #f0f0f0;
+  --ant-border-color-inverse: #fff;
+  --ant-box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  --ant-box-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  --ant-box-shadow-popover: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
+  --ant-box-shadow-drawer: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  --ant-box-shadow-modal: 0 24px 48px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+  // Stiluri globale pentru elementele custom în light mode
+  h1, h2, h3, h4, h5, h6 {
+    color: #333333 !important;
+  }
+
+  p {
+    color: #666666 !important;
+  }
+
+  a {
+    color: #1976d2 !important;
+
+    &:hover {
+      color: #0d47a1 !important;
+    }
+  }
+
+  .custom-button {
+    background: #f8f9fa !important;
+    color: #333333 !important;
+    border: 1px solid #d9d9d9 !important;
+
+    &:hover {
+      background: #e9ecef !important;
+      border-color: #1976d2 !important;
+    }
+  }
+
+  .custom-card {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .custom-input {
+    background: #ffffff !important;
+    color: #333333 !important;
+    border: 1px solid #d9d9d9 !important;
+
+    &::placeholder {
+      color: #999999 !important;
+    }
+
+    &:focus {
+      border-color: #1976d2 !important;
+      box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+    }
+  }
+
+  // Stiluri pentru componente specifice în light mode
+  .breadcrumb-nav {
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #e9ecef !important;
+  }
+
+  .breadcrumb-link {
+    color: #1976d2 !important;
+
+    &:hover {
+      background-color: #e3f2fd !important;
+      color: #0d47a1 !important;
+    }
+  }
+
+  .breadcrumb-current {
+    color: #666 !important;
+  }
+
+  .breadcrumb-item.active .breadcrumb-current {
+    color: #333 !important;
+  }
+
+  .breadcrumb-separator {
+    color: #999 !important;
+  }
+
+  // Welcome component
+  .welcome-container {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+  }
+
+  .welcome-header h1 {
+    color: #1f2937 !important;
+  }
+
+  .welcome-header p {
+    color: #6b7280 !important;
+  }
+
+  .profile-card {
+    background: white !important;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .profile-avatar .user-image {
+    border: 4px solid #e5e7eb !important;
+  }
+
+  .profile-info h2 {
+    color: #1f2937 !important;
+  }
+
+  .profile-info p {
+    color: #6b7280 !important;
+
+    &.user-role {
+      color: #059669 !important;
+    }
+
+    &.user-id {
+      color: #9ca3af !important;
+    }
+  }
+
+  .logout-btn {
+    background: #dc2626 !important;
+
+    &:hover {
+      background: #b91c1c !important;
+    }
+  }
+
+  // Profile component
+  .profile-main-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  }
+
+  .image-section .user-profile {
+    border: 4px solid #667eea !important;
+  }
+
+  .mdc-text-field--outlined .mdc-notched-outline {
+    border-color: #e0e4e7 !important;
+  }
+
+  .mdc-text-field--outlined:hover .mdc-notched-outline {
+    border-color: #667eea !important;
+  }
+
+  .mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline {
+    border-color: #667eea !important;
+  }
+
+  .mat-mdc-form-field-label {
+    color: #666 !important;
+  }
+
+  .mat-mdc-input-element {
+    color: #333 !important;
+  }
+
+  .mdc-form-field > label {
+    color: #333 !important;
+  }
+
+  small {
+    color: #666 !important;
+    background: #f8f9fa !important;
+    border-left: 4px solid #ffc107 !important;
+  }
+
+  button[color="warn"] {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important;
+    color: white !important;
+  }
+
+
+  mat-error {
+    color: #dc3545 !important;
+  }
+
+  // Confirm delete dialog
+  h2 {
+    color: #333333 !important;
+  }
+
+  mat-dialog-content p {
+    color: #666666 !important;
+  }
+
+  mat-dialog-actions button:not([color]) {
+    background: #f8f9fa !important;
+    color: #333333 !important;
+  }
+
+  // Ng-Zorro form labels în light mode
+  ::ng-deep nz-form-label {
+    color: #333333 !important;
+  }
+
+  ::ng-deep nz-form-label {
+    color: #333333 !important;
+  }
+
+  ::ng-deep .ant-form-item-label > label {
+    color: #333333 !important;
+  }
+
+  .ant-form-item-label {
+    color: #333333 !important;
+  }
+
+  // Fundal pentru body și html în light mode
+  body, html {
+    background-color: #ffffff !important;
+  }
+
+  .mat-typography {
+    background-color: #ffffff !important;
+  }
+}
+
+.dark-mode{
+  // Dark theme variables for ng-zorro (same as default)
+  --ant-primary-color: #1890ff;
+  --ant-success-color: #52c41a;
+  --ant-warning-color: #faad14;
+  --ant-error-color: #f5222d;
+  --ant-info-color: #1890ff;
+  --ant-text-color: rgba(255, 255, 255, 0.85);
+  --ant-text-color-secondary: rgba(255, 255, 255, 0.65);
+  --ant-text-color-inverse: #000;
+  --ant-background-color: #141414;
+  --ant-background-color-light: #1f1f1f;
+  --ant-background-color-base: #000;
+  --ant-border-color-base: #303030;
+  --ant-border-color-split: #262626;
+  --ant-border-color-inverse: #fff;
+  --ant-box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  --ant-box-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  --ant-box-shadow-popover: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
+  --ant-box-shadow-drawer: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  --ant-box-shadow-modal: 0 24px 48px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+  // Forțează stilurile pentru input-uri cu eroare în dark mode global
+  .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+  .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
+  .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ff4d4f !important;
+  }
+
+  .ant-form-item-has-error .ant-input,
+  .ant-form-item-has-error .ant-input:hover,
+  .ant-form-item-has-error .ant-input:focus {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ff4d4f !important;
+  }
+
+  // Fundal pentru body și html în dark mode
+  body, html {
+    background-color: #141414 !important;
+  }
+
+  .mat-typography {
+    background-color: #141414 !important;
+  }
+
+  // Stiluri globale pentru elementele custom în dark mode
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  a {
+    color: #1890ff !important;
+
+    &:hover {
+      color: #40a9ff !important;
+    }
+  }
+
+  .custom-button {
+    color: rgba(230, 227, 227, 0.7) !important;
+
+    &:hover {
+      color: #e9ecef !important;
+      border-color: #1976d2 !important;
+    }
+  }
+
+  // Stiluri pentru componente specifice în dark mode
+  .breadcrumb-nav {
+    background-color: #1f1f1f !important;
+    border-bottom: 1px solid #404040 !important;
+  }
+
+  .breadcrumb-link {
+    color: #1890ff !important;
+
+    &:hover {
+      background-color: rgba(24, 144, 255, 0.1) !important;
+      color: #40a9ff !important;
+    }
+  }
+
+  .breadcrumb-current {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  .breadcrumb-item.active .breadcrumb-current {
+    color: #ffffff !important;
+  }
+
+  .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .mat-mdc-menu-panel custom-menu mat-menu-after mat-menu-below {
+    background-color: #1f1f1f;
+  }
+
+  .custom-menu {
+    background: #1f1f1f !important;
+
+    .menu-item {
+      background: #303030;
+    }
+
+    .menu-header {
+      background: #1f1f1f;
+      color: #cccccc;
+    }
+  }
+
+  //update-password component
+
+  .update-password-container{
+    background: linear-gradient(135deg, #08080b 0%, #16213e 100%);
+
+    .card{
+      background-color: #1f1f1f;
+    }
+    ::ng-deep nz-form-label {
+      color: white;
+    }
+  }
+
+  //reset-password component
+
+  .reset-password-container{
+    background: linear-gradient(135deg, #1c1c2c 0%, #16213e 100%);
+
+    .card{
+      background-color: #1f1f1f;
+    }
+    ::ng-deep nz-form-label {
+      color: white;
+    }
+  }
+
+  //register component
+
+  .register-page-container{
+    background: linear-gradient(135deg, #1c1c2c 0%, #16213e 100%);
+
+    .register-card{
+      background-color: #1f1f1f;
+    }
+    ::ng-deep nz-form-label {
+      color: white;
+    }
+    ::ng-deep nz-input {
+      background-color: #1f1f1f;
+      color: white;
+    }
+    ::ng-deep label {
+      color: white;
+    }
+  }
+
+
+  // Welcome component
+  .welcome-container {
+    background-color: #141414 !important;
+    color: #ffffff !important;
+  }
+
+  .welcome-header h1 {
+    color: #ffffff !important;
+  }
+
+  .welcome-header p {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .profile-card {
+    background: #1f1f1f !important;
+    border: 1px solid #404040 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .profile-avatar .user-image {
+    border: 4px solid #404040 !important;
+  }
+
+  .profile-info h2 {
+    color: #ffffff !important;
+  }
+
+  .profile-info p {
+    color: rgba(255, 255, 255, 0.8) !important;
+
+    &.user-role {
+      color: #52c41a !important;
+    }
+
+    &.user-id {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+  }
+
+  .logout-btn {
+    background: #ff4d4f !important;
+
+    &:hover {
+      background: #ff7875 !important;
+    }
+  }
+
+  mat-card-title{
+    color: white;
+  }
+
+  // Ng-Zorro form labels în light mode
+  ::ng-deep nz-form-label {
+    color: #ffffff !important;
+  }
+
+  ::ng-deep nz-form-label {
+    color: #ffffff !important;
+  }
+
+  ::ng-deep .ant-form-item-label > label {
+    color: #ffffff !important;
+  }
+
+  .ant-form-item-label {
+    color: #ffffff !important;
+  }
+
+  // Profile component
+  .profile-main-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+  }
+
+  .image-section .user-profile {
+    border: 4px solid #667eea !important;
+  }
+
+  .mdc-text-field--outlined .mdc-notched-outline {
+    border-color: #404040 !important;
+  }
+
+  .mdc-text-field--outlined:hover .mdc-notched-outline {
+    border-color: #667eea !important;
+  }
+
+  .mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline {
+    border-color: #667eea !important;
+  }
+
+  .mat-mdc-form-field-label {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .mat-mdc-input-element {
+    color: #ffffff !important;
+  }
+
+  .mdc-form-field > label {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  small {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(48, 48, 48, 0.5) !important;
+    border-left: 4px solid #ffc107 !important;
+  }
+
+  .menu-button{
+    background: none !important;
+    color: white;
+
+    mat-icon{
+      color: white;
+    }
+  }
+
+  button[color="warn"] {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important;
+    color: white !important;
+  }
+
+  button:not([color]) {
+    //background: #2f2f2f !important;
+    color: #bbc3e6 !important;
+    //border: 2px solid #404040 !important;
+
+    &:hover {
+      background: #404040 !important;
+      border-color: #667eea !important;
+    }
+  }
+
+  mat-error {
+    color: #ff4d4f !important;
+  }
+
+  // Confirm delete dialog
+  h2 {
+    color: #ffffff !important;
+  }
+
+  mat-dialog-content p {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  mat-dialog-actions button:not([color]) {
+    background: #2f2f2f !important;
+    color: #ffffff !important;
+  }
+
+
+  .app-brand {
+    color: white !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  .app-title {
+    color: white !important;
+  }
+
+  // Light mode styles pentru header
+  .custom-toolbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  }
+
+  .menu-button {
+    color: rgba(255, 255, 255, 0.9) !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: white !important;
+    }
+  }
+
+  .app-brand {
+    color: white !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  .app-title {
+    color: white !important;
+  }
+}
+

@@ -1,0 +1,331 @@
+
+// Main container
+.enter-email-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  position: relative;
+
+  // Subtle pattern overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+}
+
+// Main form card
+.email-container {
+  background: var(--ant-background-color-light, rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--ant-box-shadow-card,
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6));
+  border: 1px solid var(--ant-border-color-base, rgba(255, 255, 255, 0.2));
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+
+  // Animation on load
+  animation: slideInUp 0.6s ease-out;
+
+  &.mfa-card {
+    max-width: 480px;
+  }
+}
+
+// Card header
+.card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ant-text-color, #2c3e50);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.form-subtitle {
+  font-size: 16px;
+  color: var(--ant-text-color-secondary, #64748b);
+  margin: 0;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+// Form styles
+.email-form,
+.verification-form {
+  width: 100%;
+}
+
+// Form items with better spacing
+nz-form-item {
+  margin-bottom: 24px;
+
+  &:last-of-type {
+    margin-bottom: 32px;
+  }
+}
+
+// Input styling
+.form-input,
+.verification-input {
+  height: 48px;
+  border-radius: 12px;
+  border: 2px solid var(--ant-border-color-base, #e2e8f0);
+  font-size: 16px;
+  padding: 0 16px;
+  transition: all 0.3s ease;
+  background: var(--ant-background-color, rgba(255, 255, 255, 0.8));
+  color: var(--ant-text-color, #000);
+
+  &:hover {
+    border-color: var(--ant-border-color-split, #cbd5e1);
+    background: var(--ant-background-color-light, rgba(255, 255, 255, 0.9));
+  }
+
+  &:focus {
+    border-color: var(--ant-primary-color, #667eea);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: var(--ant-background-color, rgba(255, 255, 255, 1));
+  }
+
+  &::placeholder {
+    color: var(--ant-text-color-secondary, #94a3b8);
+    font-weight: 400;
+  }
+}
+
+// Button styling
+.submit-button,
+.verify-button {
+  width: 100%;
+  height: 48px;
+  margin-top: 10px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background: var(--ant-primary-color, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+
+// Form control customization
+nz-form-control {
+  min-width: auto;
+  width: 100%;
+}
+
+// Error message styling
+.ant-form-item-explain-error {
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 6px;
+}
+
+// Loading spinner customization
+::ng-deep .ant-spin-container {
+  .ant-spin {
+    .ant-spin-dot {
+      i {
+        background-color: #667eea;
+      }
+    }
+
+    .ant-spin-text {
+      color: #667eea;
+      font-weight: 500;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .enter-email-container{
+    padding: 16px;
+  }
+
+  .form-title {
+    font-size: 24px;
+  }
+
+  .form-subtitle {
+    font-size: 14px;
+  }
+
+}
+
+// Animation keyframes
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Focus improvements for accessibility
+.form-input:focus-visible,
+.verification-input:focus-visible {
+  outline: 2px solid var(--ant-primary-color, #667eea);
+  outline-offset: 2px;
+}
+
+.submit-button:focus-visible,
+.verify-button:focus-visible {
+  outline: 2px solid var(--ant-primary-color, #667eea);
+  outline-offset: 2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: more) {
+  .email-container {
+    background: var(--ant-background-color, white);
+    border: 2px solid var(--ant-text-color, #000);
+  }
+
+  .form-input,
+  .verification-input {
+    border-color: var(--ant-text-color, #000);
+  }
+
+  .submit-button,
+  .verify-button {
+    background: var(--ant-text-color, #000);
+
+    &:hover:not(:disabled) {
+      background: var(--ant-text-color-secondary, #333);
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+
+  .submit-button,
+  .verify-button {
+    transition: none;
+
+    &:hover:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  .form-input,
+  .verification-input {
+    transition: none;
+  }
+}
+
+// Dark mode specific styles
+::ng-deep .dark-mode {
+  .enter-email-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+  }
+
+  .email-container {
+    background: rgba(31, 31, 31, 0.95);
+    border: 1px solid rgba(48, 48, 48, 0.3);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 10px 20px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .submit-button {
+    background: #1a73e8 !important;
+    color: white !important;
+  }
+
+  .form-input,
+  .verification-input {
+    background: rgba(20, 20, 20, 0.8);
+    border-color: var(--ant-border-color-base, #303030);
+
+    &:hover {
+      background: rgba(20, 20, 20, 0.9);
+      border-color: var(--ant-border-color-split, #404040);
+    }
+
+    &:focus {
+      background: rgba(20, 20, 20, 1);
+    }
+  }
+}
+
+// Light mode specific styles
+.light-mode {
+  .enter-email-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .email-container {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 10px 20px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .form-input,
+  .verification-input {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: #e2e8f0;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: #cbd5e1;
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+}
