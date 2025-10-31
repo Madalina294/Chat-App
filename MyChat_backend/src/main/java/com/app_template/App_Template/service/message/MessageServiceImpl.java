@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.app_template.App_Template.entity.Message;
-import com.app_template.App_Template.entity.MessageDto;
+import com.app_template.App_Template.dto.MessageDto;
 import com.app_template.App_Template.entity.User;
 import com.app_template.App_Template.dto.UserDto;
 import com.app_template.App_Template.repository.MessageRepository;

@@ -169,16 +169,34 @@
       background-color: #007bff;
       color: white;
       border-radius: 18px 18px 4px 18px;
+
+      .message-sender-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 4px;
+        padding-right: 4px;
+      }
     }
   }
 
   &.their-message {
     justify-content: flex-start;
 
+
     .message-content {
       background-color: #e9ecef;
       color: #333;
       border-radius: 18px 18px 18px 4px;
+
+      .message-sender-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: #666;
+        margin-bottom: 4px;
+        //padding-left: 8px;
+      }
+
     }
   }
 }
@@ -188,6 +206,7 @@
   padding: 10px 14px;
   word-wrap: break-word;
 }
+
 
 .message-text {
   margin-bottom: 4px;
@@ -239,5 +258,37 @@
   &:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+    color: #0d47a1 !important;
+  }
+}
+
+::ng-deep .dark-mode{
+  .users-sidebar{
+    background: #1f1f1f;
+
+    .sidebar-header{
+      background: #1f1f1f !important;
+    }
+
+    .user-item {
+      color: white;
+    }
+  }
+
+  .conversation-area{
+    background: #1f1f1f;
+
+    .conversation-header{
+      background: #1f1f1f !important;
+      color: white;
+    }
+
+    .message-input-container {
+      background: #1f1f1f;
+
+      .message-input{
+        background: #3c4043;
+      }
+    }
   }
 }

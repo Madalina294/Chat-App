@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app_template.App_Template.entity.MessageDto;
+import com.app_template.App_Template.dto.MessageDto;
 import com.app_template.App_Template.entity.User;
 import com.app_template.App_Template.repository.UserRepository;
 import com.app_template.App_Template.service.message.MessageService;

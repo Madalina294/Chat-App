@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import com.app_template.App_Template.entity.MessageDto;
+import com.app_template.App_Template.dto.MessageDto;
 
 public interface MessageService {
 

@@ -60,6 +60,9 @@
           [class.my-message]="isMyMessage(message)"
           [class.their-message]="!isMyMessage(message)">
           <div class="message-content">
+            <div class="message-sender-name">
+              {{ isMyMessage(message) ? (message.senderName || 'Tu') : (message.senderName || 'Utilizator') }}
+            </div>
             <div class="message-text">{{ message.content }}</div>
             <div class="message-time">
               {{ formatTime(message.timestamp) }}
