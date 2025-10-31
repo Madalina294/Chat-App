@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { isPlatformBrowser, NgForOf, NgIf } from '@angular/common';
 import { StorageService } from '../../services/storage/storage.service';
+import {TranslatePipe, TranslateModule, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-chat',
@@ -11,7 +12,9 @@ import { StorageService } from '../../services/storage/storage.service';
   imports: [
     FormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    TranslateModule,
+    TranslatePipe
   ],
   styleUrls: ['./chat.component.scss']
 })
@@ -39,7 +42,8 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private chat: ChatService
+    private chat: ChatService,
+    private translate: TranslateService
   ) {
     this.currentUserId = StorageService.getUserId();
 

@@ -307,5 +307,13 @@
     "successMessage": "Email trimis cu succes!",
     "errorMessage": "Eroare la trimiterea emailului! Te rugăm încearcă din nou.",
     "ok": "Ok"
+  },
+  "chat": {
+    "conversations": "Conversații",
+    "selectConversation": "Selectează o conversație pentru a începe să chatezi",
+    "you": "Tu",
+    "user": "Utilizator",
+    "messagePlaceholder": "Scrie un mesaj...",
+    "sendButton": "Trimite"
   }
 }

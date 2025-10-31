@@ -2,7 +2,7 @@
   <!-- Sidebar cu lista de useri -->
   <div class="users-sidebar">
     <div class="sidebar-header">
-      <h3>Conversații</h3>
+      <h3>{{ "chat.conversations" | translate }}</h3>
     </div>
     <div class="users-list">
       <div
@@ -37,7 +37,7 @@
   <div class="conversation-area">
     <!-- Mesaj când nu e niciun user selectat -->
     <div *ngIf="!hasSelectedUser()" class="no-selection">
-      <p>Selectează o conversație pentru a începe să chatezi</p>
+      <p>{{ "chat.selectConversation" | translate }}</p>
     </div>
 
     <!-- Container pentru conversație când există user selectat -->
@@ -61,7 +61,7 @@
           [class.their-message]="!isMyMessage(message)">
           <div class="message-content">
             <div class="message-sender-name">
-              {{ isMyMessage(message) ? (message.senderName || 'Tu') : (message.senderName || 'Utilizator') }}
+              {{ message.senderName || (isMyMessage(message) ? ("chat.you" | translate) : ("chat.user" | translate)) }}
             </div>
             <div class="message-text">{{ message.content }}</div>
             <div class="message-time">
@@ -76,14 +76,14 @@
         <input
           [value]="content()"
           (input)="content.set($any($event.target).value)"
-          placeholder="Type a message..."
+          [placeholder]="'chat.messagePlaceholder' | translate"
           class="message-input"
           (keyup.enter)="send()">
         <button
           (click)="send()"
           [disabled]="!content().trim()"
           class="send-button">
-          Send
+          {{ "chat.sendButton" | translate }}
         </button>
       </div>
     </div>

@@ -307,5 +307,13 @@
     "successMessage": "Email sent successfully!",
     "errorMessage": "Error at sending the email! Please try again.",
     "ok": "Ok"
+  },
+  "chat": {
+    "conversations": "Conversations",
+    "selectConversation": "Select a conversation to start chatting",
+    "you": "You",
+    "user": "User",
+    "messagePlaceholder": "Type a message...",
+    "sendButton": "Send"
   }
 }
