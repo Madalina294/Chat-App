@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.app_template.App_Template.enums.Role;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Service;
 import com.app_template.App_Template.entity.Message;
 import com.app_template.App_Template.dto.MessageDto;
 import com.app_template.App_Template.entity.User;
-import com.app_template.App_Template.dto.UserDto;
 import com.app_template.App_Template.repository.MessageRepository;
 import com.app_template.App_Template.repository.UserRepository;
 
@@ -72,6 +72,7 @@ public class MessageServiceImpl implements MessageService {
 
         return allUsers.stream()
                 .filter(user -> !user.getId().equals(currentUserId))
+                .filter(user -> user.getRole() != Role.ADMIN)
                 .map(user -> {
                     // Găsește ultimul mesaj cu acest user
                     Message lastMessage = messageRepository.findLastMessage(currentUserId, user.getId());
